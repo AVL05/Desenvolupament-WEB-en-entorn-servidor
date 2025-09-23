@@ -23,6 +23,7 @@ echo "<p>Total con casting: $totalEntero</p>";
 include_once("otro.php"); 
 require("prueba.inc.php"); 
  
-require_once("inventado.php"); ?>
+require_once("inventado.php");
+include_once("footer.inc.php"); ?>
 </body>
 </html>
