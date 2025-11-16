@@ -2,7 +2,7 @@
 	function formularioDisco(){//Esta función imprimirá en la página un formulario y llamará a la función registrar del objeto para registrar un disco nuevo
 		echo '<button  onclick=location.href="./index.php">Volver</button>';
 		echo '<h1>Crear nuevo disco</h1>';
-		echo '<form action="disconuevo.php" method="post">';
+		echo '<form action="disconuevo.php" method="post" enctype="multipart/form-data">';
 		echo '<input type="text" required name="titulo" placeholder="Título"/>';
 		echo '<input type="text" required name="discografia" placeholder="Discografía"/>';
 		echo '<label>formato: </label>';
@@ -17,6 +17,9 @@
 		echo '<label>fechaCompra: </label>';
 		echo '<input type="date" name="fechaCompra"/>';
 		echo '<input type="number" step="  " min=0 value=0 name="precio" placeholder="precio"/>';
+		echo '<label>Portada del álbum: </label>';
+		echo '<input type="file" name="portada" id="portada" accept="image/jpeg,image/png"/>';
+		echo '<input type="hidden" name="MAX_FILE_SIZE" value="2000000"/>';
 		echo '<input id="reg-mod" type="submit" value="Registrar"/>';
 		echo '</form>';
 		
@@ -25,7 +28,61 @@
 			// Ejemplo: Conexion('localhost','root','','discografia')
 			$conectar = new Conexion('localhost','root','','discografia');
 			$conexion = $conectar->conectionPDO();
-			$album = new Album('',$_POST['titulo'],$_POST['discografia'],$_POST['formato'],$_POST['fechaLanzamiento'],$_POST['fechaCompra'],$_POST['precio']);
+			
+			$rutaPortada = '';
+			
+			// Procesar la imagen subida
+			if(isset($_FILES['portada']) && $_FILES['portada']['error'] == UPLOAD_ERR_OK){
+				// Validar el tipo de archivo
+				$finfo = new finfo(FILEINFO_MIME_TYPE);
+				$mimeType = $finfo->file($_FILES['portada']['tmp_name']);
+				
+				$tiposPermitidos = array(
+					'jpg' => 'image/jpeg',
+					'png' => 'image/png'
+				);
+				
+				$extension = array_search($mimeType, $tiposPermitidos, true);
+				
+				if($extension !== false){
+					// Validar que el archivo es realmente una imagen subida
+					if(is_uploaded_file($_FILES['portada']['tmp_name'])){
+						// Crear directorio si no existe
+						$directorioBase = 'img/portadas';
+						if(!is_dir($directorioBase)){
+							mkdir($directorioBase, 0777, true);
+						}
+						
+						// Generar nombre único basado en el título del álbum
+						$nombreArchivo = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_POST['titulo']);
+						$nombreArchivo = $nombreArchivo . '_' . time() . '.' . $extension;
+						$rutaDestino = $directorioBase . '/' . $nombreArchivo;
+						
+						// Mover el archivo subido
+						if(move_uploaded_file($_FILES['portada']['tmp_name'], $rutaDestino)){
+							$rutaPortada = $rutaDestino;
+						}else{
+							echo '<h1 id="mal">ERROR AL SUBIR LA PORTADA!</h1>';
+						}
+					}else{
+						echo '<h1 id="mal">ERROR: Posible ataque con archivo subido!</h1>';
+					}
+				}else{
+					echo '<h1 id="mal">ERROR: Tipo de archivo no permitido. Solo JPG y PNG.</h1>';
+				}
+			}elseif(isset($_FILES['portada']) && $_FILES['portada']['error'] != UPLOAD_ERR_NO_FILE){
+				// Manejo de otros errores de subida
+				switch($_FILES['portada']['error']){
+					case UPLOAD_ERR_INI_SIZE:
+					case UPLOAD_ERR_FORM_SIZE:
+						echo '<h1 id="mal">ERROR: El archivo excede el tamaño máximo permitido.</h1>';
+						break;
+					default:
+						echo '<h1 id="mal">ERROR: Error desconocido al subir el archivo.</h1>';
+				}
+			}
+			
+			$album = new Album('',$_POST['titulo'],$_POST['discografia'],$_POST['formato'],$_POST['fechaLanzamiento'],$_POST['fechaCompra'],$_POST['precio'],$rutaPortada);
 
 			$album->registrarDisco($conexion);
 		}
@@ -134,11 +191,12 @@
 		$conectar = new Conexion('localhost','root','','discografia');
 		$conexion = $conectar->conectionPDO();
 		// Si la tabla usa 'id' en lugar de 'cod', cambia cod por id
-		$resultado = $conexion->query('SELECT codigo,titulo,discografica,formato,fechaLanzamiento,fechaCompra,precio FROM discografia.album;');
+		$resultado = $conexion->query('SELECT codigo,titulo,discografica,formato,fechaLanzamiento,fechaCompra,precio,portada FROM discografia.album;');
 		echo'<button  onclick=location.href="./disconuevo.php">Nuevo disco</button>';
 		echo'<button  onclick=location.href="./canciones.php">Buscar canciones</button>';
 		echo'<table>';
 		echo'<tr>
+			<th>Portada</th>
 			<th>título</th>
 			<th>Discografía</th>
 			<th>formato</th>
@@ -150,8 +208,15 @@
 			// Usar el título como identificador temporal si no existe 'cod'
 			$cod = $registro['codigo'];
 			$discografia = $registro['discografica'];
-			$album = new Album($cod,$registro['titulo'],$discografia,$registro['formato'],$registro['fechaLanzamiento'],$registro['fechaCompra'],$registro['precio']);
+			$portada = isset($registro['portada']) ? $registro['portada'] : '';
+			$album = new Album($cod,$registro['titulo'],$discografia,$registro['formato'],$registro['fechaLanzamiento'],$registro['fechaCompra'],$registro['precio'],$portada);
 			echo '<tr>';
+			// Mostrar portada si existe
+			if(!empty($album->getPortada()) && file_exists($album->getPortada())){
+				echo '<td><img src="'.$album->getPortada().'" alt="Portada" style="width:80px;height:80px;object-fit:cover;"/></td>';
+			}else{
+				echo '<td>Sin portada</td>';
+			}
 			echo '<td><a href="http://localhost/discografia/disco.php?cod='.urlencode($registro['titulo']).'">'.$album->getTitulo().'</a></td>';
 			echo '<td>'.$album->getDiscografia().'</td>';
 			echo '<td>'.$album->getFormato().'</td>';
@@ -172,11 +237,24 @@
 		while ($registro = $resultado->fetch()) {
 			$TC = $registro['totalCanciones'];
 		}
-		$resultado = $conexion->query('SELECT titulo,formato,fechaLanzamiento,fechaCompra,precio FROM discografia.album WHERE album.titulo = \''.$tituloAlbum.'\';');
+		$resultado = $conexion->query('SELECT titulo,formato,fechaLanzamiento,fechaCompra,precio,portada FROM discografia.album WHERE album.titulo = \''.$tituloAlbum.'\';');
 		echo '<button  onclick=location.href="./index.php">Volver</button>';
 		echo '<h1>DATOS DEL DISCO</h1>';
-		echo'<table>';
-		echo'<tr>
+		
+	while ($registro = $resultado->fetch()) {
+			$discografia = isset($registro['discografia']) ? $registro['discografia'] : 'N/A';
+			$portada = isset($registro['portada']) ? $registro['portada'] : '';
+			$listaAlbum = new Album('',$registro['titulo'],$discografia,$registro['formato'],$registro['fechaLanzamiento'],$registro['fechaCompra'],$registro['precio'],$portada);
+			
+			// Mostrar portada grande si existe
+			if(!empty($listaAlbum->getPortada()) && file_exists($listaAlbum->getPortada())){
+				echo '<div style="text-align:center;margin:20px;">';
+				echo '<img src="'.$listaAlbum->getPortada().'" alt="Portada del álbum" style="max-width:300px;max-height:300px;object-fit:cover;border:2px solid #ccc;"/>';
+				echo '</div>';
+			}
+			
+			echo'<table>';
+			echo'<tr>
 			<th>título</th>
 			<th>Discografía</th>
 			<th>formato</th>
@@ -184,9 +262,6 @@
 			<th>fechaCompra</th>
 			<th>Precio</th>			
 		</tr>';
-		while ($registro = $resultado->fetch()) {
-			$discografia = isset($registro['discografia']) ? $registro['discografia'] : 'N/A';
-			$listaAlbum = new Album('',$registro['titulo'],$discografia,$registro['formato'],$registro['fechaLanzamiento'],$registro['fechaCompra'],$registro['precio']);
 			echo '<tr>';
 			echo '<td>'.$listaAlbum->getTitulo().'</td>';
 			echo '<td>'.$listaAlbum->getDiscografia().'</td>';

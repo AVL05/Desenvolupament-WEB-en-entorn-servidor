@@ -7,8 +7,9 @@
         private $fechaL;
         private $fechaC;
         private $precio;
+        private $portada;
 
-        public function __construct($cod,$titulo,$dicografia,$formato,$fechaL,$fechaC,$precio){
+        public function __construct($cod,$titulo,$dicografia,$formato,$fechaL,$fechaC,$precio,$portada=''){
             $this->cod = $cod;
             $this->titulo = $titulo;
             $this->dicografia = $dicografia;
@@ -16,6 +17,7 @@
             $this->fechaL = $fechaL;
             $this->fechaC = $fechaC;
             $this->precio = $precio;
+            $this->portada = $portada;
         }
 
         public function getCod(){
@@ -67,9 +69,16 @@
             $this->precio = $precio;
         }
 
+        public function getPortada(){
+            return $this->portada;
+        }
+        public function setPortada($portada){
+            $this->portada = $portada;
+        }
+
         public function registrarDisco($conexion){
             try{
-            $consulta = $conexion->exec('INSERT INTO discografia.album (titulo,discografia,formato,fechaLanzamiento,fechaCompra,precio) VALUES ("'. $this->getTitulo() .'","'. $this->getDiscografia() .'","'.$this->getFormato().'","'. $this->getFechaL() .'","'.$this->getFechaC().'",'.$this->precio.');');
+            $consulta = $conexion->exec('INSERT INTO discografia.album (titulo,discografia,formato,fechaLanzamiento,fechaCompra,precio,portada) VALUES ("'. $this->getTitulo() .'","'. $this->getDiscografia() .'","'.$this->getFormato().'","'. $this->getFechaL() .'","'.$this->getFechaC().'",'.$this->precio.',"'.$this->getPortada().'");');
             echo'<h1 id="bien">DISCO '.$this->titulo.' REGISTRADO!</h1>';
             }catch(Exception $e){
                 echo '<h1 id="mal">ERROR AL INSERTAR EL DISCO!</h1>';
