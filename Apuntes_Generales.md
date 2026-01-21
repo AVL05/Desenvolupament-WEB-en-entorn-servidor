@@ -9,6 +9,7 @@
 ### ¿Qué ocurre cuando introduces una URL en el navegador?
 
 **Arquitectura Cliente-Servidor:**
+
 - **Cliente web** → Internet → **Servidor web** → Programa servidor → Repositorio de páginas (.html, .php, .jsp, .asp)
 
 **Proceso paso a paso:**
@@ -25,6 +26,7 @@
 ### Páginas Web Estáticas
 
 **Características:**
+
 - Almacenadas en su forma final
 - Solo varían si el desarrollador altera el contenido
 - Su utilidad se basa en mostrar información específica
@@ -38,6 +40,7 @@
 ### Páginas Web Dinámicas
 
 **Características:**
+
 - El contenido cambia según diferentes factores:
   - Día y hora de acceso
   - Si se accede con usuario
@@ -48,6 +51,7 @@
 - La extensión del archivo NO es .html, sino la del lenguaje de programación web dinámico que entiende el servidor: `.php`, `.asp`, `.cgi`...
 
 **Ejemplos comunes:**
+
 - Gmail
 - Blogs
 - Marca
@@ -59,10 +63,12 @@
 ### Pasos en el servidor al recibir una petición de página dinámica
 
 El código se analiza línea por línea:
+
 - Si es código HTML → permanece igual
 - Si es código del lenguaje de programación del servidor → se ejecuta
 
 La ejecución del lenguaje de programación del servidor típicamente incluye:
+
 - Acceso a base de datos
 - Acceso a otros archivos
 
@@ -75,12 +81,14 @@ Una vez analizadas todas las líneas de código, el documento generado se envía
 ### Páginas Estáticas vs Dinámicas: Ventajas y Desventajas
 
 **Estáticas:**
+
 - ✅ No es necesario saber programar
 - ✅ Su contenido nunca varía, los enlaces siempre muestran lo mismo
 - ✅ Mejor posicionamiento SEO al tener siempre el mismo contenido
 - ❌ Actualización manual por el desarrollador web
 
 **Dinámicas:**
+
 - ✅ Más flexibilidad
 - ❌ Mayor dificultad en desarrollo
 - ❌ Mayor consumo de recursos
@@ -93,6 +101,7 @@ Una vez analizadas todas las líneas de código, el documento generado se envía
 ### Páginas Mixtas (Estáticas + Dinámicas)
 
 Hoy en día, la mayoría de páginas web contienen partes estáticas y partes dinámicas. Por ejemplo:
+
 - Contacto
 - Términos y Condiciones
 - Ubicación
@@ -108,17 +117,20 @@ Esto ocurre porque no todo se almacena en una base de datos ni necesita procesar
 Gracias al aumento de la velocidad de Internet y el incremento del rendimiento del equipo actual, desde hace años muchas empresas han aprovechado el poder de las páginas web dinámicas para desarrollar aplicaciones que se ejecutan sobre Internet.
 
 **Ejemplos:**
+
 - Gmail
 - Suites ofimáticas
 - ...
 
 #### Ventajas:
+
 - Solo se "instalan" en un ordenador: el servidor
 - Debido a lo anterior, es fácil gestionarlas (backups, actualizaciones...)
 - No se necesita HW especial para los clientes, solo un cliente web
 - Si tenemos conexión a Internet, se pueden usar desde cualquier lugar
 
 #### Desventajas:
+
 - La interfaz de la aplicación está limitada a la interfaz del cliente web
 - Depende de una conexión a Internet para usarlas
 - La información debe transmitirse entre servidor y cliente, lo que hace imposible crear aplicaciones web cuando los datos a procesar son muy grandes, por ejemplo: edición de vídeo
@@ -136,6 +148,7 @@ Gracias al aumento de la velocidad de Internet y el incremento del rendimiento d
 ## 2. Tecnologías para Programación Web - Servidor
 
 Para desarrollar páginas web dinámicas y aplicaciones web necesitas:
+
 - Servidor web
 - Lenguaje de programación
 - Módulo responsable de ejecutar el código
@@ -172,6 +185,7 @@ Generalmente se usan arquitecturas por **capas** o **niveles**. Por ejemplo, usa
 ### ¿Qué arquitectura/plataforma elegir?
 
 Considera:
+
 - ¿Qué tan grande será el proyecto?
 - ¿Qué lenguajes de programación conozco? ¿Vale la pena aprender uno nuevo?
 - Herramientas públicas o propietarias
@@ -188,12 +202,15 @@ La diferencia entre los lenguajes de programación web del lado del servidor rad
 ### Tipos de ejecución:
 
 **Scripting:** se almacenan en un archivo de texto con instrucciones. El servidor usará un intérprete que procesa las instrucciones generando una página web.
+
 - PHP, Perl, Python, ASP
 
 **Código nativo:** el código se compila y traduce a lenguaje máquina dependiente del procesador (binario). Se ejecuta directamente.
+
 - CGI → C
 
 **Código intermedio:** compilado en código intermedio independiente del procesador. Se requiere interpretar ese código. Independiente de la plataforma.
+
 - Java, ASP.Net
 
 ---
@@ -202,7 +219,8 @@ La diferencia entre los lenguajes de programación web del lado del servidor rad
 
 Existen muchos IDEs para desarrollar páginas web, aunque NO son necesarios y un simple editor de texto es suficiente.
 
-**Características de un IDE:** 
+**Características de un IDE:**
+
 - Resaltado y autocompletado de código
 - Comprobación de errores al editar
 - Ejecución y depuración
@@ -220,6 +238,7 @@ Visual Studio, Eclipse, NetBeans, IntelliJ IDEA, Brackets, Sublime, Notepad++...
 PHP es un lenguaje de scripting de propósito general diseñado para el desarrollo de páginas web dinámicas.
 
 **Características:**
+
 - Sintaxis basada en C y C++ (similar a Java)
 - Los archivos PHP tienen extensión `.php`
 - Los archivos PHP contienen código HTML (que ya conoces) junto con instrucciones PHP
@@ -301,6 +320,7 @@ F. El resultado de la ejecución será un documento con código HTML
 - **PHP** es un lenguaje de scripting muy popular para desarrollo web
 - Las **aplicaciones web** combinan front-end y back-end
 - Los **IDEs** facilitan el desarrollo, pero no son obligatorios
+
 # PHP Introduction - DWES UD2
 
 ## 1. Introducción
@@ -319,6 +339,7 @@ F. El resultado de la ejecución será un documento con código HTML
 - Se trabaja asumiendo un proyecto por servidor web
 
 **Ejercicio práctico:**
+
 - Entrar en el directorio htdocs
 - Cortar todos los elementos y pegarlos en una carpeta llamada `htdocs_original` en el directorio principal de XAMPP
 - Esto permite recuperar archivos en caso de error
@@ -341,11 +362,7 @@ F. El resultado de la ejecución será un documento con código HTML
 ### PHP dentro de HTML
 
 ```html path=null start=null
-<article>
-<?php
-    //código con instrucciones PHP
-?>
-</article>
+<article><?php //código con instrucciones PHP ?></article>
 ```
 
 ### HTML dentro de PHP
@@ -363,13 +380,13 @@ F. El resultado de la ejecución será un documento con código HTML
 ```html path=null start=null
 <!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Primera prueba php</title>
-</head>
-<body>
+  </head>
+  <body>
     Este es un archivo php que se encuentra en el servidor.
-</body>
+  </body>
 </html>
 ```
 
@@ -402,18 +419,21 @@ Acceder a: `http://localhost/info.php`
 ### Comentarios
 
 **Una línea:**
+
 ```php path=null start=null
 // Función para loguearse
 ```
 
 **Múltiples líneas:**
+
 ```php path=null start=null
 /* Script desarrollado por:
    Daniel Godoy
    fecha: 7-9-25 */
 ```
 
-⚠️ **Importante:** 
+⚠️ **Importante:**
+
 - Los comentarios PHP NO aparecen en el HTML final
 - Los comentarios HTML `<!-- -->` SÍ aparecen
 
@@ -429,6 +449,7 @@ Acceder a: `http://localhost/info.php`
 - **Son case sensitive** (distinguen mayúsculas/minúsculas)
 
 **Válidos:**
+
 ```php path=null start=null
 $edad
 $nombreCalle
@@ -439,6 +460,7 @@ $primer_apellido
 ```
 
 **NO válidos:**
+
 ```php path=null start=null
 $cantidad pelotas
 $3tipos
@@ -460,15 +482,16 @@ $variable = TRUE;
 
 #### Tipos de datos
 
-| Tipo | Descripción |
-|------|-------------|
+| Tipo      | Descripción                                  |
+| --------- | -------------------------------------------- |
 | `boolean` | TRUE/FALSE (0 = false, otros números = true) |
-| `integer` | Número sin decimales |
-| `float` | Número con decimales |
-| `string` | Cadena de caracteres entre comillas |
-| `null` | Variable sin valor |
+| `integer` | Número sin decimales                         |
+| `float`   | Número con decimales                         |
+| `string`  | Cadena de caracteres entre comillas          |
+| `null`    | Variable sin valor                           |
 
 **Ejemplos:**
+
 ```php path=null start=null
 $booleano = FALSE;
 $edad = 58;
@@ -480,6 +503,7 @@ $otro = null;
 #### Casting (conversión de tipos)
 
 **Automático:**
+
 ```php path=null start=null
 $cantidad = 3;
 $precio = 1.6;
@@ -487,6 +511,7 @@ $total = $cantidad * $precio;
 ```
 
 **Forzado:**
+
 ```php path=null start=null
 $cantidad = 3;
 $precio = 1.6;
@@ -500,16 +525,20 @@ $total = $cantidad * (int)$precio; // $total valdrá 3
 #### Operadores principales
 
 **Asignación:**
+
 - `=`
 
 **Aritméticos:**
+
 - `+` `-` `*` `/` `%` `++` `--`
 
 **Comparación:**
+
 - `>` `<` `>=` `<=` `==` `===` `!=` `!==`
 - `===` y `!==` comparan tipo y valor
 
 **Lógicos:**
+
 - `&&` `||` `!`
 
 📚 **Documentación:** Consultar tipos de operadores completos
@@ -530,7 +559,7 @@ $b = 2;
 
 function prueba() {
     $c = $a;  // Error: $a no es visible aquí
-    
+
     global $b;  // Ahora $b es accesible
     $c = $b;
 }
@@ -607,7 +636,7 @@ Usando el operador `.`:
 Como HTML usa muchas comillas dobles:
 
 ```html path=null start=null
-<a href="fotos.php"><img src="camara.png" alt="Galería fotográfica"></a>
+<a href="fotos.php"><img src="camara.png" alt="Galería fotográfica" /></a>
 ```
 
 **Se recomienda usar comillas simples en PHP:**
@@ -623,12 +652,14 @@ Para imprimir una comilla simple: `\'`
 #### Operadores de cadenas
 
 **Concatenar:** `.`
+
 ```php path=null start=null
 $a = "Módulo";
 $b = $a . " DWES";
 ```
 
 **Concatenar y asignar:** `.=`
+
 ```php path=null start=null
 $a = "Módulo";
 $a .= " DWES";  // $a ahora es "Módulo DWES"
@@ -640,7 +671,7 @@ $a .= " DWES";  // $a ahora es "Módulo DWES"
 <?php
     $nombre = "Antonio";
     echo strlen($nombre);  // Longitud
-    
+
     $nombreMayus = strtoupper($nombre);  // A mayúsculas
 ?>
 ```
@@ -675,7 +706,7 @@ boolean is_string($variable)
 <?php
     $a = 25;
     $existe = isset($a);      // TRUE
-    
+
     unset($a);
     $existe = isset($a);      // FALSE
 ?>
@@ -691,13 +722,14 @@ Valores que no pueden cambiar durante la ejecución:
 <?php
     define("PI", 3.141592);
     define("NOMBRE", "Luisa", true);  // Case insensitive
-    
+
     $radio = 5;
     $superficie = PI * $radio * $radio;
 ?>
 ```
 
 **Características:**
+
 - No llevan `$` como prefijo
 - Tipos permitidos: `integer`, `float`, `string`, `boolean`, `null`
 - Tercer parámetro `true` = case insensitive
@@ -721,9 +753,9 @@ Retorna fecha/hora actual en formato UNIX (segundos desde 1/1/1970):
 ```php path=null start=null
 <?php
     $start = time();
-    
+
     /* Muchas instrucciones php */
-    
+
     echo "Esta página se ha generado en " . time()-$start . " segundos";
 ?>
 ```
@@ -770,7 +802,8 @@ $examen = mktime(18, 5, 0, 11, 8, 2023);
 
 Variables disponibles en **cualquier ámbito** sin `global`:
 
-#### $_SERVER
+#### $\_SERVER
+
 Información sobre el servidor:
 
 ```php path=null start=null
@@ -780,16 +813,20 @@ Información sobre el servidor:
 ?>
 ```
 
-#### $_GET, $_POST, $_COOKIE
+#### $\_GET, $\_POST, $\_COOKIE
+
 Variables recibidas por estos métodos
 
-#### $_REQUEST
+#### $\_REQUEST
+
 Combina datos de GET, POST y COOKIE
 
-#### $_FILES
+#### $\_FILES
+
 Información de archivos enviados por POST
 
-#### $_SESSION
+#### $\_SESSION
+
 Variables de sesión (se verá más adelante)
 
 ---
@@ -800,12 +837,12 @@ Permite añadir contenido de otros archivos:
 
 #### Instrucciones
 
-| Función | Descripción |
-|---------|-------------|
-| `include` | Si no encuentra el archivo, da warning y continúa |
-| `require` | Si no encuentra el archivo, error fatal |
-| `include_once` | Incluye solo una vez |
-| `require_once` | Require solo una vez |
+| Función        | Descripción                                       |
+| -------------- | ------------------------------------------------- |
+| `include`      | Si no encuentra el archivo, da warning y continúa |
+| `require`      | Si no encuentra el archivo, error fatal           |
+| `include_once` | Incluye solo una vez                              |
+| `require_once` | Require solo una vez                              |
 
 ```php path=null start=null
 include("ruta_archivo_php");
@@ -825,11 +862,13 @@ formulario.inc.php
 #### Ejercicio práctico
 
 **1. Crear `prueba.inc.php`:**
+
 ```html path=null start=null
 <h1>Esto viene de otro archivo php</h1>
 ```
 
 **2. Modificar `prueba.php`:**
+
 ```php path=null start=null
 <?php
     include("archivo.php");
@@ -843,16 +882,16 @@ formulario.inc.php
 
 ## Ejercicio de Repaso
 
-| Descripción | Función/Palabra |
-|-------------|-----------------|
-| Usado para definir constantes | `define` |
-| Retorna un string en formato | `date` |
-| Indica si una variable está definida y su valor no es null | `isset` |
-| Establece el tipo de una variable | `settype` |
-| Obtiene un string de texto desde una fecha/hora | `date` |
-| Indica si una variable es de tipo string | `is_string` |
-| Obtiene un array con información de fecha/hora actual | `getdate` |
-| Establece la zona horaria | `date_default_timezone_set` |
+| Descripción                                                | Función/Palabra             |
+| ---------------------------------------------------------- | --------------------------- |
+| Usado para definir constantes                              | `define`                    |
+| Retorna un string en formato                               | `date`                      |
+| Indica si una variable está definida y su valor no es null | `isset`                     |
+| Establece el tipo de una variable                          | `settype`                   |
+| Obtiene un string de texto desde una fecha/hora            | `date`                      |
+| Indica si una variable es de tipo string                   | `is_string`                 |
+| Obtiene un array con información de fecha/hora actual      | `getdate`                   |
+| Establece la zona horaria                                  | `date_default_timezone_set` |
 
 ---
 
@@ -1058,6 +1097,7 @@ Puedes consultar todas las funciones predefinidas en la documentación oficial d
 Además de las funciones predefinidas, puedes crear tus propias funciones.
 
 **Características importantes:**
+
 - **NO** es necesario definir las funciones antes de usarlas
 - Deben estar en el mismo script o en un archivo incluido con `include`/`require`
 
@@ -1083,6 +1123,7 @@ function precio_con_iva() {
 Puedes pasar valores a funciones mediante argumentos.
 
 **Características:**
+
 - Los argumentos son una lista de variables separadas por comas
 - **No se indica** el tipo de dato de la variable
 - Opcionalmente, la función puede **retornar un valor**
@@ -1163,9 +1204,11 @@ echo "El precio con IVA es ". $precio_iva;
 #### Paso por valor vs paso por referencia
 
 **Paso por valor (por defecto):**
+
 - La variable original **no cambia** su valor
 
 **Paso por referencia (con `&`):**
+
 - La variable original **puede cambiar** su valor
 - **No recomendado** sin un conocimiento avanzado del lenguaje
 
@@ -1232,9 +1275,9 @@ $colores[] = "azul";  // Añade al final con índice automático
 
 ```php path=null start=null
 $ciclos = array(
-    0 => "Desarrollo web", 
+    0 => "Desarrollo web",
     "DAW" => "Desarrollo web",
-    1 => "Desarrollo multiplataforma", 
+    1 => "Desarrollo multiplataforma",
     "DAM" => "Desarrollo multiplataforma"
 );
 ```
@@ -1359,6 +1402,7 @@ $array = [
 ```
 
 **Consideraciones:**
+
 - No se declara el tamaño de las dimensiones
 - Las claves pueden ser mixtas (índice o asociativas)
 
@@ -1388,12 +1432,14 @@ Esto evita problemas al recorrer el array después de eliminar elementos.
 **Objetivo:** Modularizar el pie de página con fecha en español.
 
 **Requisitos:**
+
 1. El footer debe estar en `footer.inc.php`
 2. Incluir tu nombre y apellido
 3. Mostrar la fecha actual con días y meses en español
 4. Usar `switch` para convertir números de día/mes a español
 
 **Formato esperado:**
+
 ```
 Miércoles, 20 de septiembre de 2023
 ```
@@ -1403,11 +1449,13 @@ Miércoles, 20 de septiembre de 2023
 **Objetivo:** Crear una página con bucles.
 
 **Requisitos:**
+
 1. Usar el mismo header y footer que el resto de archivos
 2. Mostrar una lista de números del 1 al 30 (usar bucle `for`)
 3. Calcular y mostrar el factorial de 5 usando un bucle
 
 **Formato esperado del factorial:**
+
 ```
 5! = 5 x 4 x 3 x 2 x 1 = 120
 ```
@@ -1426,6 +1474,7 @@ function calculo_numerico($a, $b = 5, $c) {
 **Respuesta:** No es correcta. Los parámetros con valores por defecto deben ir **al final**.
 
 **Corrección:**
+
 ```php path=null start=null
 function calculo_numerico($a, $c, $b = 5) {
     $resultado = $a * $b * $c;
@@ -1438,6 +1487,7 @@ function calculo_numerico($a, $c, $b = 5) {
 **Objetivo:** Mostrar el contenido de `$_SERVER` en una tabla.
 
 **Requisitos:**
+
 1. Usar el mismo header y footer
 2. Mostrar todo el contenido de `$_SERVER` dentro de una tabla HTML
 3. **NO usar** `print_r` ni `var_dump`
@@ -1448,6 +1498,7 @@ function calculo_numerico($a, $c, $b = 5) {
 **Objetivo:** Modificar `footer.inc.php` para usar arrays en lugar de `switch`.
 
 **Requisitos:**
+
 1. Almacenar nombres de días y meses en un array multidimensional
 2. Acceder a la posición correspondiente según el número de día/mes
 3. Eliminar el `switch` usado anteriormente
@@ -1486,12 +1537,13 @@ Los formularios web son las herramientas que permiten recopilar y procesar datos
 
 ```html path=null start=null
 <form action="procesa.php" method="post">
-    Nombre del alumno: <input type="text" name="nombre" id="nombre"><br>
-    Apellidos del alumno: <input type="text" name="apellidos" id="apellidos"><br>
-    Ciclo que cursa:<br>
-    <input type="radio" name="ciclo" value="DAW"> Des. de ap. web<br>
-    <input type="radio" name="ciclo" value="DAM"> Des. de ap. multiplataforma<br><br>
-    <input type="submit" value="Enviar">
+  Nombre del alumno: <input type="text" name="nombre" id="nombre" /><br />
+  Apellidos del alumno:
+  <input type="text" name="apellidos" id="apellidos" /><br />
+  Ciclo que cursa:<br />
+  <input type="radio" name="ciclo" value="DAW" /> Des. de ap. web<br />
+  <input type="radio" name="ciclo" value="DAM" /> Des. de ap. multiplataforma<br /><br />
+  <input type="submit" value="Enviar" />
 </form>
 ```
 
@@ -1501,14 +1553,14 @@ Cuando un checkbox puede enviar varios valores, se debe indicar en el atributo `
 
 ```html path=null start=null
 <form name="input" action="#" method="post">
-    Nombre del alumno: <input type="text" name="nombre"><br>
-    Ciclos que cursa:<br>
-    <input type="checkbox" name="modulos[]" value="DWES">
-    Desarrollo web en entorno servidor<br>
-    <input type="checkbox" name="modulos[]" value="DWEC">
-    Desarrollo web en entorno cliente<br>
-    <br>
-    <input type="submit" value="Enviar">
+  Nombre del alumno: <input type="text" name="nombre" /><br />
+  Ciclos que cursa:<br />
+  <input type="checkbox" name="modulos[]" value="DWES" />
+  Desarrollo web en entorno servidor<br />
+  <input type="checkbox" name="modulos[]" value="DWEC" />
+  Desarrollo web en entorno cliente<br />
+  <br />
+  <input type="submit" value="Enviar" />
 </form>
 ```
 
@@ -1518,23 +1570,24 @@ Cuando un checkbox puede enviar varios valores, se debe indicar en el atributo `
 
 #### Tabla comparativa
 
-| Característica | GET | POST |
-|----------------|-----|------|
-| **Uso principal** | Recuperar datos | Enviar datos |
-| **Ubicación de datos** | Parámetros URL | Cuerpo de la petición |
-| **Visibilidad de datos** | Visible en URL | Oculto en el cuerpo de la petición |
-| **Tamaño máximo** | Limitado (~2048 caracteres) | Sin límite práctico |
-| **Caché** | Puede ser cacheado | No se cachea |
-| **Marcadores** | Soportado | No soportado |
-| **Historial del navegador** | Se guarda | No se guarda |
-| **Seguridad** | Menos seguro | Más seguro |
-| **Idempotencia** | Sí (mismo resultado) | No (puede cambiar) |
+| Característica              | GET                         | POST                               |
+| --------------------------- | --------------------------- | ---------------------------------- |
+| **Uso principal**           | Recuperar datos             | Enviar datos                       |
+| **Ubicación de datos**      | Parámetros URL              | Cuerpo de la petición              |
+| **Visibilidad de datos**    | Visible en URL              | Oculto en el cuerpo de la petición |
+| **Tamaño máximo**           | Limitado (~2048 caracteres) | Sin límite práctico                |
+| **Caché**                   | Puede ser cacheado          | No se cachea                       |
+| **Marcadores**              | Soportado                   | No soportado                       |
+| **Historial del navegador** | Se guarda                   | No se guarda                       |
+| **Seguridad**               | Menos seguro                | Más seguro                         |
+| **Idempotencia**            | Sí (mismo resultado)        | No (puede cambiar)                 |
 
 #### Consideraciones de seguridad
 
 La seguridad debe ser siempre tu preocupación principal al elegir entre GET y POST. Aunque HTTPS encripta todos los datos en tránsito para ambos métodos, las peticiones POST ofrecen una capa adicional de privacidad al mantener los datos fuera de las URLs.
 
 **Esto importa porque:**
+
 - Las URLs a menudo se registran en logs del servidor, historiales del navegador y servidores proxy
 - Las URLs pueden compartirse accidentalmente en capturas de pantalla o marcadores
 - Las claves API o tokens en URLs podrían exponerse a través de cabeceras referrer
@@ -1574,12 +1627,13 @@ La seguridad debe ser siempre tu preocupación principal al elegir entre GET y P
 
 ```html path=null start=null
 <form name="input" action="procesa_get.php" method="get">
-    Nombre del alumno: <input type="text" name="nombre" id="nombre"><br>
-    Apellidos del alumno: <input type="text" name="apellidos" id="apellidos"><br>
-    Ciclo que cursa:<br>
-    <input type="radio" name="ciclo" value="DAW"> Des. de ap. web<br>
-    <input type="radio" name="ciclo" value="DAM"> Des. de ap. multiplataforma<br><br>
-    <input type="submit" value="Enviar">
+  Nombre del alumno: <input type="text" name="nombre" id="nombre" /><br />
+  Apellidos del alumno:
+  <input type="text" name="apellidos" id="apellidos" /><br />
+  Ciclo que cursa:<br />
+  <input type="radio" name="ciclo" value="DAW" /> Des. de ap. web<br />
+  <input type="radio" name="ciclo" value="DAM" /> Des. de ap. multiplataforma<br /><br />
+  <input type="submit" value="Enviar" />
 </form>
 ```
 
@@ -1595,6 +1649,7 @@ La seguridad debe ser siempre tu preocupación principal al elegir entre GET y P
 ```
 
 **Resultado:**
+
 - La información introducida se muestra en pantalla
 - Los parámetros que se han pasado al formulario **se muestran en la URL**
 - Ejemplo URL: `localhost/UD2/form/procesa_get.php?nombre=Pepito&apellidos=Perez&ciclo=DAW`
@@ -1607,12 +1662,13 @@ La seguridad debe ser siempre tu preocupación principal al elegir entre GET y P
 
 ```html path=null start=null
 <form name="input" action="procesa_post.php" method="post">
-    Nombre del alumno: <input type="text" name="nombre" id="nombre"><br>
-    Apellidos del alumno: <input type="text" name="apellidos" id="apellidos"><br>
-    Ciclo que cursa:<br>
-    <input type="radio" name="ciclo" value="DAW"> Des. de ap. web<br>
-    <input type="radio" name="ciclo" value="DAM"> Des. de ap. multiplataforma<br><br>
-    <input type="submit" value="Enviar">
+  Nombre del alumno: <input type="text" name="nombre" id="nombre" /><br />
+  Apellidos del alumno:
+  <input type="text" name="apellidos" id="apellidos" /><br />
+  Ciclo que cursa:<br />
+  <input type="radio" name="ciclo" value="DAW" /> Des. de ap. web<br />
+  <input type="radio" name="ciclo" value="DAM" /> Des. de ap. multiplataforma<br /><br />
+  <input type="submit" value="Enviar" />
 </form>
 ```
 
@@ -1628,6 +1684,7 @@ La seguridad debe ser siempre tu preocupación principal al elegir entre GET y P
 ```
 
 **Resultado:**
+
 - La información introducida se muestra en pantalla
 - Los parámetros que se han pasado al formulario **NO se muestran en la URL**
 - Ejemplo URL: `localhost/UD2/form/procesa_post.php`
@@ -1640,12 +1697,12 @@ A veces puede ser interesante que las variables enviadas sean arrays:
 
 ```html path=null start=null
 <form name="input" action="#" method="post">
-    Nombre: <input type="text" name="propio[nombre]"><br>
-    Apellidos: <input type="text" name="propio[apellidos]"><br>
-    Nombre: <input type="text" name="conyuge[nombre]"><br>
-    Apellidos: <input type="text" name="conyuge[apellidos]"><br>
-    <br>
-    <input type="submit">
+  Nombre: <input type="text" name="propio[nombre]" /><br />
+  Apellidos: <input type="text" name="propio[apellidos]" /><br />
+  Nombre: <input type="text" name="conyuge[nombre]" /><br />
+  Apellidos: <input type="text" name="conyuge[apellidos]" /><br />
+  <br />
+  <input type="submit" />
 </form>
 ```
 
@@ -1671,9 +1728,9 @@ La validación de datos es **muy importante** y debe hacerse en **3 lugares**:
 Usando los tipos correctos en los campos `input` y el atributo `required`:
 
 ```html path=null start=null
-<input type="email" name="correo" required>
-<input type="number" name="edad" min="18" max="99" required>
-<input type="date" name="fecha" required>
+<input type="email" name="correo" required />
+<input type="number" name="edad" min="18" max="99" required />
+<input type="date" name="fecha" required />
 ```
 
 #### 2. Cliente (JavaScript)
@@ -1682,12 +1739,12 @@ Antes de que los datos sean enviados, para evitar sobrecargar el servidor:
 
 ```javascript path=null start=null
 function validarFormulario() {
-    let nombre = document.getElementById('nombre').value;
-    if (nombre.length < 3) {
-        alert('El nombre debe tener al menos 3 caracteres');
-        return false;
-    }
-    return true;
+  let nombre = document.getElementById("nombre").value;
+  if (nombre.length < 3) {
+    alert("El nombre debe tener al menos 3 caracteres");
+    return false;
+  }
+  return true;
 }
 ```
 
@@ -1696,6 +1753,7 @@ function validarFormulario() {
 Para evitar suplantación de identidad, por ejemplo si alguien crea su propio formulario. Esto se hace usando JavaScript y PHP juntos, a menudo con un `input type="hidden"`.
 
 **Funciones útiles para validación:**
+
 - `isset()` - Verifica si una variable está definida
 - `is_numeric()` - Verifica si es numérico
 - `strcmp()` - Compara cadenas
@@ -1715,6 +1773,7 @@ Es común que la misma página que muestra el formulario sea la que procese los 
    - Indicación de qué campos contienen errores
 
 **Para lograr esto:**
+
 - Se usa el atributo `value` de los `input`
 - Se usa el atributo `checked` de los checkboxes/radios
 - Se usa la función `isset()` para saber si llegan variables del método usado
@@ -1730,11 +1789,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!isset($_POST['nombre']) || empty($_POST['nombre'])) {
         $errores[] = 'El nombre es obligatorio';
     }
-    
+
     if (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $errores[] = 'Email inválido';
     }
-    
+
     // Si no hay errores, procesar
     if (empty($errores)) {
         // Procesar datos...
@@ -1775,6 +1834,7 @@ preg_match($expresion, $cadena)
 Busca en `$cadena` una coincidencia con la expresión regular `$expresion`.
 
 **Retorna:**
+
 - `1` si coincide
 - `0` si no coincide
 - `false` si ocurre un error
@@ -1813,6 +1873,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 ```
 
 **Ventajas de filter_var():**
+
 - Más simple y legible
 - Mantenido por PHP
 - Cumple con estándares RFC
@@ -1827,6 +1888,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 En el proyecto, añade un formulario en el que pruebes los diferentes tipos de datos y con el que el usuario pueda enviar una consulta.
 
 **Requisitos:**
+
 - Si no lo tienes, añade un campo tipo `checkbox` y un campo `input type="date"`
 - Crea un archivo llamado `consulta.php` que muestre los datos recibidos del formulario
 - Este documento debe tener la misma cabecera y pie de página que el resto de archivos
@@ -1838,6 +1900,7 @@ En el proyecto, añade un formulario en el que pruebes los diferentes tipos de d
 Crea un archivo llamado `registro.php` en el proyecto. Este documento debe tener la misma cabecera y pie de página que el resto de archivos.
 
 **Campos del formulario:**
+
 - Nombre
 - Apellidos
 - Nombre de usuario
@@ -1859,6 +1922,7 @@ Crea un archivo llamado `registro.php` en el proyecto. Este documento debe tener
    - No mostrar el formulario
 
 **Validaciones necesarias:**
+
 - Todos los campos son obligatorios excepto el campo de publicidad
 - Los campos deben contener el tipo de dato correcto
 - Las contraseñas deben coincidir
@@ -1876,15 +1940,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($_POST['nombre'])) {
         $errores['nombre'] = 'El nombre es obligatorio';
     }
-    
+
     if ($_POST['password'] !== $_POST['password2']) {
         $errores['password'] = 'Las contraseñas no coinciden';
     }
-    
+
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $errores['email'] = 'Email no válido';
     }
-    
+
     // Si no hay errores, procesar
     if (empty($errores)) {
         echo '<p class="exito">Registro completado correctamente</p>';
@@ -1926,6 +1990,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST' || !empty($errores)) {
 Una excepción en PHP ocurre cuando la aplicación intenta realizar una tarea y no puede hacerlo.
 
 **Características principales:**
+
 - La excepción **detendrá la ejecución** a menos que la capturemos y manejemos
 - Al capturar y manejar una excepción, podemos:
   - **Evitar mostrar mensajes de error no deseados** al usuario final
@@ -1951,6 +2016,7 @@ catch (Exception $e) {
 #### PHP 7 y PHP 8: Clase Throwable
 
 En PHP 7 y PHP 8 (no disponible en PHP 5), tenemos la clase `Throwable`:
+
 - Cubre tanto **excepciones** como **errores internos**
 - Es más completa que `Exception`
 
@@ -2027,6 +2093,7 @@ catch (Throwable $t) {
 ```
 
 **Resultado:**
+
 - Si ocurre un error dentro de la sección `try`, la ejecución **NO se detendrá**
 - Se redirigirá a la sección `catch` en su lugar
 - **Salida:** `An error happened`
@@ -2072,6 +2139,7 @@ catch (Throwable $t) {
 ```
 
 **Salida:**
+
 ```text path=null start=null
 An error Division by zero happened
 In line 17 of file C:\xampp\htdocs\ProvesPHP\exceptions\exceptions01.php
@@ -2120,6 +2188,7 @@ catch (Exception $e) {
 Podemos crear clases de excepciones personalizadas **extendiendo** la clase `Exception`.
 
 **Características:**
+
 - La clase personalizada hereda las propiedades de la clase `Exception` de PHP
 - Podemos agregar **funciones personalizadas**
 - Permite crear mensajes de error más específicos
@@ -2161,6 +2230,7 @@ catch (customException $e) {
 #### ¿Qué es un Warning?
 
 Un **Warning** es un error no fatal que:
+
 - Genera un mensaje
 - **NO detiene la ejecución** del script
 - **NO puede ser manejado** por una estructura `try...catch`
@@ -2185,6 +2255,7 @@ catch (Throwable $t) {
 ```
 
 **Resultado:**
+
 ```text path=null start=null
 Warning: Undefined variable $anverseumber in C:\xampp\htdocs\ProvesPHP\exceptions\exceptions01.php on line 5
 
@@ -2194,6 +2265,7 @@ The inverse of 10 is
 #### Deshabilitar Warnings
 
 Los Warnings pueden deshabilitarse:
+
 - En el archivo de configuración `php.ini`
 - Usando la función `error_reporting(E_ERROR)`
 
@@ -2221,6 +2293,7 @@ function handleErrors($eLevel, $eMessage, $eFile, $eLine) {
 ```
 
 **Parámetros de la función:**
+
 - `$eLevel`: Nivel del error
 - `$eMessage`: Mensaje del error
 - `$eFile`: Archivo donde ocurrió el error
@@ -2291,6 +2364,7 @@ function handlingErrors($eLevel, $eMessage, $eFile, $eLine) {
 ```
 
 **Parámetros de `error_log()`:**
+
 - Primer parámetro: mensaje a guardar
 - Segundo parámetro: `3` = modo append (añadir al final del archivo)
 - Tercer parámetro: ruta/nombre del archivo de log
@@ -2303,7 +2377,7 @@ function handleErrors($eLevel, $eMessage, $eFile, $eLine) {
                   " in file " . $eFile . " line " . $eLine .
                   " User: " . get_current_user() . " from IP: " .
                   $_SERVER['REMOTE_ADDR'];
-    
+
     error_log("$newMessage in $eFile, line $eLine",
               3,
               "c:/xampp/apache/logs/user_errors");
@@ -2311,6 +2385,7 @@ function handleErrors($eLevel, $eMessage, $eFile, $eLine) {
 ```
 
 **Ventajas del registro en log:**
+
 - Permite analizar errores posteriormente
 - No muestra información sensible al usuario
 - Facilita el debugging en producción
@@ -2341,6 +2416,7 @@ Este recurso permite ver el árbol de excepciones disponibles en cada versión d
 **Objetivo:** Crear un script que valide parámetros numéricos.
 
 **Requisitos:**
+
 - Crear una función que sume dos números pasados como parámetros
 - Dentro de la función, verificar que los parámetros recibidos son números
 - Si no son números, lanzar una excepción
@@ -2370,6 +2446,7 @@ catch (Exception $e) {
 **Objetivo:** Crear una clase de excepción personalizada y validar división.
 
 **Requisitos:**
+
 1. Crear una clase que extienda `Exception` y modifique el mensaje mostrado
 2. Crear una función que divida dos números pasados como parámetros
 3. Dentro de la función, verificar que:
@@ -2441,6 +2518,7 @@ El operador ternario, **`?:`**, es un **operador condicional** que permite escri
 ```
 
 **Componentes:**
+
 - **Condición:** Expresión que se evalúa a `true` o `false`
 - **`?`:** Separador entre condición y valor verdadero
 - **Valor si verdadero:** Se retorna/asigna si la condición es `true`
@@ -2474,11 +2552,13 @@ echo $mensaje;
 ### 5.4 Cuándo Usar el Operador Ternario
 
 ✅ **Usar para:**
+
 - Asignaciones condicionales simples
 - Condicionales de una línea
 - Valores por defecto
 
 ❌ **NO usar para:**
+
 - Lógica extensa o compleja
 - Múltiples operaciones
 - Cuando dificulta la legibilidad
@@ -2493,9 +2573,13 @@ El operador ternario es especialmente útil para manejar valores de formularios.
 
 ```html path=null start=null
 <label for="username">Usuario:</label>
-<input type="text" id="username" name="username" 
-    value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" 
-    required>
+<input
+  type="text"
+  id="username"
+  name="username"
+  value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>"
+  required
+/>
 ```
 
 **Explicación del ejemplo:**
@@ -2509,10 +2593,12 @@ El operador ternario es especialmente útil para manejar valores de formularios.
 **Función:** `htmlspecialchars()` convierte caracteres especiales en entidades HTML.
 
 **Previene:**
+
 - Ataques XSS (Cross-Site Scripting)
 - Inyección de código HTML/JavaScript malicioso
 
 **Conversiones comunes:**
+
 - `<` → `&lt;`
 - `>` → `&gt;`
 - `"` → `&quot;`
@@ -2545,8 +2631,8 @@ echo "Hola, $nombre";
 ```php path=null start=null
 <?php
 $nota = 7;
-$resultado = ($nota >= 9) ? 'Sobresaliente' 
-           : (($nota >= 7) ? 'Notable' 
+$resultado = ($nota >= 9) ? 'Sobresaliente'
+           : (($nota >= 7) ? 'Notable'
            : (($nota >= 5) ? 'Aprobado' : 'Suspenso'));
 echo $resultado;
 ?>
@@ -2576,27 +2662,30 @@ echo $es_admin ? '<a href="panel_admin.php">Panel Admin</a>' : '<p>Acceso denega
 
 ### 5.7 Comparación con Otras Estructuras
 
-| Estructura | Uso recomendado | Legibilidad |
-|------------|-----------------|-------------|
-| **Operador ternario** | Asignaciones simples | Alta (si es simple) |
-| **if-else** | Lógica con múltiples instrucciones | Alta |
-| **switch** | Múltiples opciones basadas en un valor | Media-Alta |
+| Estructura            | Uso recomendado                        | Legibilidad         |
+| --------------------- | -------------------------------------- | ------------------- |
+| **Operador ternario** | Asignaciones simples                   | Alta (si es simple) |
+| **if-else**           | Lógica con múltiples instrucciones     | Alta                |
+| **switch**            | Múltiples opciones basadas en un valor | Media-Alta          |
 
 ### 5.8 Operador de Fusión de Null (Null Coalescing) - PHP 7+
 
 En PHP 7+ existe el operador **`??`** (null coalescing) que simplifica el patrón común con `isset()`:
 
 **Con operador ternario:**
+
 ```php path=null start=null
 $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : 'Invitado';
 ```
 
 **Con operador de fusión de null:**
+
 ```php path=null start=null
 $nombre = $_GET['nombre'] ?? 'Invitado';
 ```
 
 **Ventajas:**
+
 - Más conciso
 - Menos propenso a errores
 - Específicamente diseñado para valores por defecto
@@ -2617,6 +2706,7 @@ $nombre = $_GET['nombre'] ?? 'Invitado';
 ✅ Combinar con `isset()` para verificar existencia de variables
 
 ---
+
 # Programación Orientada a Objetos con PHP - UD3
 
 ## 1. Introducción a la POO
@@ -2666,7 +2756,7 @@ class Producto {
     private $codigo;
     public $nombre;
     public $PVP;
-    
+
     public function muestra() {
         print "<p>" . $this->codigo . "</p>";
     }
@@ -2674,6 +2764,7 @@ class Producto {
 ```
 
 **Buenas prácticas:**
+
 - Los elementos dentro de la clase deben ordenarse: primero propiedades, luego métodos.
 - Los nombres de clase deben comenzar con mayúscula.
 - Las clases deben estar en su propio archivo, nombrado `ClassName.inc.php`.
@@ -2737,7 +2828,7 @@ public function getCodigo() {
 }
 ```
 
-#### Métodos mágicos __set y __get
+#### Métodos mágicos **set y **get
 
 También puedes usar los métodos mágicos `__set` y `__get`:
 
@@ -2752,11 +2843,11 @@ Si se declaran en una clase, PHP los llamará cuando se intente acceder a un atr
 class Producto {
     private $nombre;
     private $precio;
-    
+
     public function __set($propiedad, $valor) {
         $this->$propiedad = $valor;
     }
-    
+
     public function __get($propiedad) {
         return $this->$propiedad;
     }
@@ -2772,6 +2863,7 @@ echo $consola->nombre;     // Acceso al método mágico __get
 Las constantes de clase son comunes a todas las instancias de la clase. Se definen con `const`, su nombre usualmente en **MAYÚSCULAS**, no tiene el símbolo `$`, su valor siempre entre comillas y es público.
 
 Para acceder:
+
 - **Fuera de la clase**: nombre de la clase y operador de resolución de ámbito `::` → `Clase::CONSTANTE` o `$clase::CONSTANTE`
 - **Dentro de la clase**: palabra reservada `self` seguida de `::` → `self::CONSTANTE`
 
@@ -2779,7 +2871,7 @@ Para acceder:
 class Coche {
     const RUEDAS = '4';
     private $modelo;
-    
+
     // Dentro de la clase
     public function mostrarRuedas() {
         return self::RUEDAS;
@@ -2802,7 +2894,7 @@ Se definen con la palabra `static`:
 ```php path=null start=null
 class Producto {
     private static $cantidadProductos = 0;
-    
+
     public static function nuevoProducto() {
         self::$cantidadProductos++;
     }
@@ -2812,6 +2904,7 @@ Producto::nuevoProducto();
 ```
 
 **Características:**
+
 - Los atributos estáticos almacenan información general sobre la clase (ej: número de objetos instanciados).
 - Los métodos estáticos realizan tareas específicas sin necesitar crear un objeto.
 - No se puede usar `$this` dentro de estos métodos.
@@ -2823,7 +2916,7 @@ Cada instancia de un objeto tiene una referencia a sí misma que se usa cuando s
 ```php path=null start=null
 class Producto {
     private $codigo;
-    
+
     public function cambiarCodigo($cod) {
         $this->codigo = $cod;
     }
@@ -2840,7 +2933,7 @@ Solo puede haber un constructor por clase (PHP no soporta sobrecarga de métodos
 class Producto {
     private static $num_productos = 0;
     private $codigo;
-    
+
     public function __construct() {
         self::$num_productos++;
     }
@@ -2854,7 +2947,7 @@ El constructor puede recibir parámetros:
 ```php path=null start=null
 class Producto {
     private $nombre;
-    
+
     public function __construct($nombre) {
         $this->nombre = $nombre;
     }
@@ -2872,11 +2965,11 @@ Un destructor permite definir las acciones que se ejecutarán cuando se elimine 
 ```php path=null start=null
 class Producto {
     private static $cantidadProductos = 0;
-    
+
     public function __construct() {
         self::$cantidadProductos++;
     }
-    
+
     public function __destruct() {
         self::$cantidadProductos--;
     }
@@ -2943,7 +3036,7 @@ El método `__toString` indica cómo se comportará el objeto cuando se trate co
 class Producto {
     private $codigo;
     private $nombre;
-    
+
     public function __toString() {
         return 'Codigo: ' . $this->codigo . '<br>Nombre: ' . $this->nombre;
     }
@@ -2968,7 +3061,7 @@ class Producto {
     public $codigo;
     public $nombre;
     public $PVP;
-    
+
     public function muestra() {
         echo $this->codigo;
     }
@@ -3004,7 +3097,7 @@ Aunque no hay sobrecarga de métodos, se permite sobrescribir un método en la s
 class Television extends Producto {
     public $pulgadas;
     public $tecnologia;
-    
+
     public function muestra() {
         print $this->pulgadas . ' pulgadas';
     }
@@ -3024,7 +3117,7 @@ Ejemplo:
 ```php path=null start=null
 class TV extends Producto {
     public $pulgadas;
-    
+
     public function __construct($row) {
         parent::__construct($row);
         $this->pulgadas = $row['pulgadas'];
@@ -3051,8 +3144,8 @@ public final function ejemplo() {
 `abstract` indica que esta clase no puede tener objetos instanciados, pero puede usarse como base para una subclase.
 
 ```php path=null start=null
-abstract class Producto { 
-    // ... 
+abstract class Producto {
+    // ...
 }
 ```
 
@@ -3069,12 +3162,12 @@ abstract public function prueba();
 ```php path=null start=null
 abstract class Figura {
     protected $color;
-    
+
     public function __set($name, $value) {
         if ($name == 'Color' && is_string($value) === true)
             $this->color = $value;
     }
-    
+
     abstract public function Dibuja();
     abstract public function Area();
 }
@@ -3083,7 +3176,7 @@ class Cuadrado extends Figura {
     public function Dibuja() {
         echo 'Dib Cuadrado ' . $this->color;
     }
-    
+
     public function Area() {
         return 0;
     }
@@ -3118,12 +3211,14 @@ class Television extends Producto implements mostrarDatos {
 ### Interfaces vs Clases Abstractas
 
 **Clases abstractas:**
+
 - Sus métodos pueden contener código.
 - Si hay código común en varias subclases, se implementa en la clase abstracta.
 - Pueden tener atributos.
 - No permite herencia múltiple.
 
 **Interfaces:**
+
 - Los métodos proporcionados están vacíos.
 - Si hay código común, debe implementarse en todas las clases que implementen la interfaz.
 - No pueden tener atributos.
@@ -3152,7 +3247,7 @@ trait World {
 
 class MyHelloWorld {
     use Hello, World;
-    
+
     public function sayExclamationMark() {
         echo '!';
     }
@@ -3236,14 +3331,15 @@ $o->sayHello();
 ```php path=null start=null
 include "Soporte.php";
 
-$soporte1 = new Soporte("Tenet", 22, 3); 
-echo "<strong>" . $soporte1->titulo . "</strong>"; 
-echo "<br>Precio: " . $soporte1->getPrecio() . " euros"; 
+$soporte1 = new Soporte("Tenet", 22, 3);
+echo "<strong>" . $soporte1->titulo . "</strong>";
+echo "<br>Precio: " . $soporte1->getPrecio() . " euros";
 echo "<br>Precio IVA incluido: " . $soporte1->getPrecioConIVA() . " euros";
 $soporte1->muestraResumen();
 ```
 
 **Resultado esperado:**
+
 ```
 Tenet
 Precio: 3 euros
@@ -3257,6 +3353,7 @@ Tenet
 Crear la clase que hereda de Soporte. Añadir el atributo duración y sobrescribir constructor y método muestraResumen.
 
 **Resultado esperado:**
+
 ```
 Los cazafantasmas
 Precio: 3.5 euros
@@ -3272,6 +3369,7 @@ Duración: 107 minutos
 Crear la clase que hereda de Soporte. Añadir atributos idiomas y formatoPantalla.
 
 **Resultado esperado:**
+
 ```
 Origen
 Precio: 15 euros
@@ -3288,11 +3386,13 @@ Formato Pantalla: 16:9
 Crear la clase que hereda de Soporte. Añadir atributos consola, minNumJugadores y maxNumJugadores.
 
 Añadir método `muestraJugadoresPosibles()` que debe mostrar:
+
 - 'Para un jugador'
 - 'Para X jugadores'
 - 'De X a Y jugadores'
 
 **Resultado esperado:**
+
 ```
 The Last of Us Part II
 Precio: 49.99 euros
@@ -3318,12 +3418,15 @@ Para un jugador
 - Traits permiten reutilizar código sin herencia múltiple
 - Interfaces definen contratos que las clases deben cumplir
 - Clases abstractas pueden tener implementación parcial
+
 # Database access from PHP (MySQL I)
 
 ## 1. Acceso a bases de datos desde PHP
 
 ### Aplicaciones web dinámicas
+
 La mayoría de las aplicaciones web son **dinámicas**, es decir, las páginas cambian dependiendo de:
+
 - Momento de acceso
 - Estado de registro/login del usuario
 - Datos consultados
@@ -3331,15 +3434,18 @@ La mayoría de las aplicaciones web son **dinámicas**, es decir, las páginas c
 El poder de las aplicaciones web dinámicas reside en el **acceso a una base de datos** que cambia, mostrando contenido diferente según estos factores.
 
 ### Soporte de DBMS en PHP
+
 PHP soporta más de **15 DBMS** (Database Management Systems).
 
 #### Evolución histórica:
+
 - **Extensiones nativas**: Históricamente, el acceso a BD se hacía mediante extensiones específicas para cada DBMS
   - Cada DBMS requería su propia extensión instalada en el servidor
   - Cada extensión tenía sus propias funciones y objetos
   - **Problema**: No había compatibilidad entre extensiones
 
 #### PDO (PHP Data Objects)
+
 - Introducido en **PHP 5**
 - Permite acceso a diferentes DBMS de la misma forma
 - Misma sintaxis incluso si se cambia el DBMS de la aplicación
@@ -3347,10 +3453,12 @@ PHP soporta más de **15 DBMS** (Database Management Systems).
 #### Comparación: Extensiones nativas vs PDO
 
 **Extensiones nativas**:
+
 - ✅ Mayor potencia
 - ✅ En algunos casos, mayor velocidad
 
 **PDO**:
+
 - ✅ Conjunto común de funciones
 - ✅ Permite cambiar el DBMS sin cambiar la aplicación
 
@@ -3359,6 +3467,7 @@ PHP soporta más de **15 DBMS** (Database Management Systems).
 ## 2. MySQL/MariaDB
 
 ### Características
+
 - **DBMS relacional** de código abierto
 - Licencia **GNU GPL** (también ofrece licencia comercial)
 - Creación de **MariaDB** como fork cuando Sun Microsystems compró MySQL
@@ -3366,6 +3475,7 @@ PHP soporta más de **15 DBMS** (Database Management Systems).
 - **La M de AMP**, XAMPP, WAMPP, LAMPP, MAMPP
 
 ### Documentación
+
 https://dev.mysql.com/doc/refman/8.4/en/
 
 ### Storage Engines (Motores de almacenamiento)
@@ -3373,15 +3483,18 @@ https://dev.mysql.com/doc/refman/8.4/en/
 MySQL tiene varios motores de almacenamiento con diferentes características:
 
 #### **InnoDB** (motor por defecto)
+
 - Proporciona **integridad referencial**
 - Soporta **transacciones**
 
 #### **MyISAM**
+
 - Muy rápido
 - NO ofrece integridad referencial
 - NO soporta transacciones
 
 #### **Memory**
+
 - Crea tablas cuyo contenido se almacena en memoria
 
 ### Character Set vs Collation
@@ -3390,6 +3503,7 @@ MySQL tiene varios motores de almacenamiento con diferentes características:
 - **Collation**: Conjunto de reglas para comparar caracteres
 
 #### Recomendaciones:
+
 - **Character set recomendado**: `utf8mb4`
 - **Collation recomendada**: `utf8mb4_0900_ai_ci`
 
@@ -3404,6 +3518,7 @@ Herramienta de administración web para MySQL incluida en XAMPP.
 **URL**: http://localhost/phpmyadmin
 
 **Permite**:
+
 - Crear bases de datos, tablas y relaciones
 - Ejecutar sentencias SQL
 - Gestionar usuarios y permisos
@@ -3413,6 +3528,7 @@ Herramienta de administración web para MySQL incluida en XAMPP.
 ## 3. MySQLi (MySQL Improved)
 
 ### Características
+
 - Extensión desarrollada para PHP 4.1.3+
 - Incluida desde **PHP 5**
 - Ofrece **interfaz dual de programación**
@@ -3420,12 +3536,14 @@ Herramienta de administración web para MySQL incluida en XAMPP.
 ### Interfaz dual: Funciones vs Objetos
 
 #### Uso de funciones:
+
 ```php
 $conexion = mysqli_connect('localhost', 'usuario', 'contraseña', 'base_de_datos');
 echo mysqli_get_server_info($conexion);
 ```
 
 #### Uso de objetos:
+
 ```php
 $conexion = new mysqli('localhost', 'usuario', 'contraseña', 'base_de_datos');
 print $conexion->server_info;
@@ -3494,6 +3612,7 @@ $dwes->connect('localhost', 'dwes', 'dwes', 'tienda');
 Es importante **verificar que la conexión se estableció** antes de continuar.
 
 #### Propiedades mysqli para errores:
+
 - `connect_errno` → número de error o null
 - `connect_error` → mensaje de error o null
 
@@ -3528,11 +3647,13 @@ $dwes->select_db('otra_base_de_datos');
 ### Tipos de consultas
 
 #### **Control** (no devuelven datos)
+
 - `UPDATE`
 - `INSERT`
 - `DELETE`
 
 #### **Query** (devuelven datos)
+
 - `SELECT`
 
 ### Ejecución de consultas
@@ -3544,6 +3665,7 @@ $resultado = $dwes->query('DELETE FROM stock WHERE unidades=0;');
 ```
 
 **Retorna**:
+
 - Para UPDATE, INSERT, DELETE → `true` o `false`
 - Para SELECT → objeto `mysqli_result`
 
@@ -3552,6 +3674,7 @@ $resultado = $dwes->query('DELETE FROM stock WHERE unidades=0;');
 Admite un parámetro opcional (constantes del sistema):
 
 #### `MYSQLI_STORE_RESULT` (opción por defecto)
+
 Los datos se recuperan todos juntos y se almacenan localmente.
 
 ```php
@@ -3559,6 +3682,7 @@ $resultado = $dwes->query('SELECT producto, unidades FROM stock;');
 ```
 
 #### `MYSQLI_USE_RESULT`
+
 Los datos se recuperan del servidor según se necesitan.
 
 ```php
@@ -3648,6 +3772,7 @@ echo 'Producto '. $producto .'('. $unidades .' unidades)<br>';
 #### Métodos equivalentes
 
 **`fetch_row()`** - Array enumerado:
+
 ```php
 $stock = $resultado->fetch_row();
 // equivale a:
@@ -3655,6 +3780,7 @@ $stock = $resultado->fetch_array(MYSQLI_NUM);
 ```
 
 **`fetch_assoc()`** - Array asociativo:
+
 ```php
 $stock = $resultado->fetch_assoc();
 // equivale a:
@@ -3662,6 +3788,7 @@ $stock = $resultado->fetch_array(MYSQLI_ASSOC);
 ```
 
 **`fetch_object()`** - Objeto:
+
 ```php
 $stock = $resultado->fetch_object();
 ```
@@ -3721,6 +3848,7 @@ $dwes->close();
 ### Consultas preparadas con bind_param()
 
 #### Tipos de datos:
+
 - `i` → integer
 - `d` → float
 - `s` → string
@@ -3802,10 +3930,12 @@ Todas las consultas después de esta instrucción formarán parte de una transac
 
 ### Finalizar transacciones manualmente
 
-#### `commit()` 
+#### `commit()`
+
 Todas las consultas se ejecutaron correctamente → guardar cambios
 
 #### `rollback()`
+
 Alguna consulta falló → deshacer cambios
 
 ### Ejemplo sin try-catch
@@ -3842,11 +3972,11 @@ try {
     $sql = 'UPDATE stock SET unidades=1 WHERE producto="3DSNG" AND tienda=1;';
     if(!$dwes->query($sql))
         throw new Exception('Error update', 1);
-    
+
     $sql = 'INSERT INTO stock (producto, tienda, unidades) VALUES ("3DSNG", 3, 1);';
     if(!$dwes->query($sql))
         throw new Exception('Error insert', 1);
-    
+
     $dwes->commit();
 }
 catch (Exception $e) {
@@ -3864,11 +3994,11 @@ try {
     $sql = 'UPDATE stock SET unidades=1 WHERE producto="3DSNG" AND tienda=1;';
     if(!$dwes->query($sql))
         throw new Exception('Error update', 1);
-    
+
     $sql = 'INSERT INTO stock (producto, tienda, unidades) VALUES ("3DSNG", 3, 1);';
     if(!$dwes->query($sql))
         throw new Exception('Error insert', 1);
-    
+
     $dwes->commit();
 }
 catch (Exception $e) {
@@ -3894,10 +4024,12 @@ catch (Exception $e) {
 ### Funcionalidad
 
 #### index.php (o main.php)
+
 - Mostrar lista de productos
 - Cada producto es un enlace a `stock.php`
 
 #### stock.php
+
 - Recibe el ID del producto
 - Muestra el stock del producto en cada tienda
 - Permite **modificar la cantidad de stock**
@@ -3914,17 +4046,20 @@ catch (Exception $e) {
 ## Resumen de conceptos clave
 
 ### Conexión
+
 ```php
 $dwes = new mysqli('localhost', 'usuario', 'password', 'basedatos');
 ```
 
 ### Consultas sin retorno
+
 ```php
 $dwes->query('UPDATE ...');
 echo $dwes->affected_rows;
 ```
 
 ### Consultas con retorno
+
 ```php
 $resultado = $dwes->query('SELECT ...');
 while($fila = $resultado->fetch_assoc()) {
@@ -3933,6 +4068,7 @@ while($fila = $resultado->fetch_assoc()) {
 ```
 
 ### Consultas preparadas
+
 ```php
 $stmt = $dwes->stmt_init();
 $stmt->prepare('SELECT * FROM tabla WHERE id=?');
@@ -3941,6 +4077,7 @@ $stmt->execute();
 ```
 
 ### Transacciones
+
 ```php
 $dwes->autocommit(false);
 try {
@@ -3968,10 +4105,12 @@ PDO es una **clase que ofrece un conjunto de propiedades y métodos** para reali
 ### Ventajas de PDO sobre MySQLi
 
 #### MySQLi
+
 - ✅ Buena opción para trabajar con bases de datos MySQL
 - ❌ Si se cambia el DBMS en el futuro, se debe reprogramar gran parte del código
 
 #### PDO
+
 - ✅ Capa de abstracción que permite cambiar de DBMS sin reprogramar
 - ✅ Mismos métodos y funciones independientemente del motor de base de datos
 - ⚠️ Es necesario evaluar si es posible que se cambie el DBMS en el futuro
@@ -4002,10 +4141,13 @@ $dwes = new PDO('mysql:host=localhost;dbname=dwes', 'dwes', 'dwes');
 El DSN se compone de:
 
 #### PDO Driver
+
 El driver específico para el DBMS (mysql, pgsql, sqlite, etc.)
 
 #### Cadena de conexión PDO
+
 Incluye:
+
 - **host**: nombre del servidor o IP
 - **port**: puerto TCP del servidor (opcional)
 - **dbname**: nombre de la base de datos
@@ -4105,6 +4247,7 @@ $resultado = $dwes->query('SELECT producto, unidades FROM stock;');
 ### Método fetch() - Acceder a los datos
 
 El método `fetch()` retorna:
+
 - El **siguiente registro** si existe
 - `false` si no hay más registros
 
@@ -4195,10 +4338,10 @@ $dwes->beginTransaction(); // Retorna true o false según cambie el modo o no
 
 if($dwes->exec($consulta1) == 0)
     $ok = false;
-    
+
 if($dwes->exec($consulta2) == 0)
     $ok = false;
-    
+
 // ...
 
 if($dwes->exec($consultaN) == 0)
@@ -4239,7 +4382,7 @@ header('Location: '.$nuevaURL.php);
 
 ```php
 <?php
-header("Location: http://www.example.com/"); 
+header("Location: http://www.example.com/");
 exit;
 ?>
 ```
@@ -4259,6 +4402,7 @@ exit;
 ### Esquema de la base de datos
 
 #### Tabla Álbum
+
 - código: entero(7) vnn
 - título: cadena(50) vnn
 - discográfica: cadena(25) vnn
@@ -4269,6 +4413,7 @@ exit;
 - **C.P. (código)** - Clave primaria
 
 #### Tabla Canción
+
 - título: cadena(50) vnn
 - álbum: entero(7) vnn
 - posición: entero(2)
@@ -4280,12 +4425,14 @@ exit;
 #### Valores enum:
 
 **formato**:
+
 - vinilo
 - cd
 - dvd
 - mp3
 
 **género**:
+
 - Clásica
 - BSO
 - Blues
@@ -4298,12 +4445,14 @@ exit;
 ### Funcionalidad requerida
 
 #### index.php
+
 - Mostrar lista de todos los álbumes de la base de datos
 - Cada álbum debe ser un enlace a `album.php`
 - Opción para **añadir un nuevo disco** → `albumnuevo.php`
 - Opción para **buscar canciones** → `canciones.php`
 
 #### album.php
+
 - Recibe el código del álbum como parámetro
 - Muestra **todas las canciones del álbum**
 - Muestra **toda la información del álbum**
@@ -4312,6 +4461,7 @@ exit;
   2. **Borrar álbum y canciones** → `borraralbum.php`
 
 #### cancionnueva.php
+
 - Formulario para ingresar canciones
 - En el encabezado debe informar a qué álbum se está añadiendo la canción
 - El mismo archivo recibe la información del formulario
@@ -4319,12 +4469,14 @@ exit;
 - Después de guardar: informa del éxito y muestra el formulario nuevamente
 
 #### borraralbum.php
+
 - Borra el disco y todas sus canciones
 - **Usar una transacción**
 - Si hay error: retornar a la página del disco e informar del error
 - Si se completa correctamente: retornar a la página principal informando de la eliminación
 
 #### albumnuevo.php
+
 - Formulario para insertar discos
 - El mismo archivo recibe la información del formulario
 - Guarda los datos en la base de datos
@@ -4332,6 +4484,7 @@ exit;
 - Si ocurre error: informar en la misma página `albumnuevo.php`
 
 #### canciones.php
+
 - Formulario que permite buscar canciones
 - Texto a buscar: campo de entrada
 - Buscar en:
@@ -4354,19 +4507,20 @@ exit;
 
 ## Resumen PDO vs MySQLi
 
-| Característica | MySQLi | PDO |
-|----------------|--------|-----|
-| **Soporte de BD** | Solo MySQL | Múltiples DBMS |
-| **Abstracción** | No | Sí |
-| **Conexión** | `new mysqli()` | `new PDO()` |
-| **Consultas sin datos** | `query()` retorna true/false | `exec()` retorna filas afectadas |
-| **Consultas con datos** | `query()` retorna mysqli_result | `query()` retorna PDOStatement |
-| **Obtener resultados** | `fetch_assoc()`, `fetch_object()` | `fetch(PDO::FETCH_ASSOC)` |
-| **Consultas preparadas** | `stmt_init()`, `prepare()` | `prepare()` |
-| **Parámetros** | `bind_param('ss', $v1, $v2)` | `bindParam(':nombre', $var)` |
-| **Transacciones** | `autocommit(false)`, `commit()`, `rollback()` | `beginTransaction()`, `commit()`, `rollback()` |
-| **Excepciones** | No por defecto | Sí en el constructor |
-```
+| Característica           | MySQLi                                        | PDO                                            |
+| ------------------------ | --------------------------------------------- | ---------------------------------------------- |
+| **Soporte de BD**        | Solo MySQL                                    | Múltiples DBMS                                 |
+| **Abstracción**          | No                                            | Sí                                             |
+| **Conexión**             | `new mysqli()`                                | `new PDO()`                                    |
+| **Consultas sin datos**  | `query()` retorna true/false                  | `exec()` retorna filas afectadas               |
+| **Consultas con datos**  | `query()` retorna mysqli_result               | `query()` retorna PDOStatement                 |
+| **Obtener resultados**   | `fetch_assoc()`, `fetch_object()`             | `fetch(PDO::FETCH_ASSOC)`                      |
+| **Consultas preparadas** | `stmt_init()`, `prepare()`                    | `prepare()`                                    |
+| **Parámetros**           | `bind_param('ss', $v1, $v2)`                  | `bindParam(':nombre', $var)`                   |
+| **Transacciones**        | `autocommit(false)`, `commit()`, `rollback()` | `beginTransaction()`, `commit()`, `rollback()` |
+| **Excepciones**          | No por defecto                                | Sí en el constructor                           |
+
+````
 # Security and Access Control - UD 5.1 DWES
 
 ## 1. Autenticación de usuarios y control de acceso
@@ -4461,16 +4615,18 @@ Almacenar las credenciales en **almacenamiento externo**:
 ### Sintaxis básica
 ```php
 $hash = crypt($password, $salt);
-```
+````
 
 ### Conceptos clave
 
 **Salt:**
+
 - Pieza de datos calculada aleatoriamente
 - Usada para generar el hash
 - Hace los hashes más difíciles de crackear
 
 **Cost (Coste):**
+
 - Grado de complejidad al aplicar el algoritmo de encriptación
 - Por defecto es 10
 - Debe ajustarse según el hardware:
@@ -4492,11 +4648,13 @@ $2y$10$6z7GKa9kpDN7KC3ICW1Hi.fd0/to7Y/x36WUKNP0IndHdkdR9Ae3K
 **Recomendado:** algoritmo **Blowfish**
 
 El salt para Blowfish debe comenzar con:
+
 - `$2a$`
 - `$2x$`
 - `$2y$` → **recomendado por seguridad**
 
 Seguido de:
+
 - Coste de dos dígitos + `$`
 - Salt de 22 caracteres del conjunto: `a-z A-Z 0-9 . /`
 
@@ -4506,7 +4664,7 @@ Seguido de:
 $pass = 'mi_Contraseña25';
 $salt = '$2y$12$'; // blowfish con complejidad 12
 $salt_chars = array_merge(range('A','Z'), range('a','z'), range(0,9), array('/', '.'));
-for($i=0; $i < 22; $i++) 
+for($i=0; $i < 22; $i++)
     $salt .= $salt_chars[array_rand($salt_chars)];
 
 // Uso de función crypt
@@ -4545,6 +4703,7 @@ echo 'Coste apropiado encontrado: ' . $coste;
 ### Verificación de contraseña
 
 La verificación se realiza con la función `hash_equals()`:
+
 - Compara el hash almacenado con el hash de la contraseña introducida
 
 **Problema:** Para que el hash sea el mismo, debe usarse el mismo salt, pero el salt es aleatorio
@@ -4569,22 +4728,26 @@ else
 ## 6. Función: password_hash (RECOMENDADA)
 
 ### Descripción
+
 - Crea un nuevo hash de contraseña usando un **algoritmo de hashing fuerte unidireccional**
 - Hay diferentes algoritmos soportados
 - Incluye toda la información necesaria para verificar el hash
 
 ### Parámetros
+
 - **Contraseña**
 - **Algoritmo de encriptación**
 - **Array de opciones del algoritmo**
 
 ### password_verify()
+
 - Verifica que una contraseña coincide con un hash
 - **Parámetros:** contraseña y hash
 - Retorna el algoritmo, coste y salt como parte del hash
 - Por tanto, **toda la información necesaria para verificar el hash está incluida**
 
 ### ✅ Funciones recomendadas
+
 **`password_hash()` y `password_verify()` son las funciones recomendadas**
 
 ### Ejemplo básico
@@ -4623,19 +4786,21 @@ echo 'Coste apropiado encontrado: ' . $coste;
 ### 1. Crear tabla en base de datos
 
 ```sql
-CREATE TABLE `discografia`.`tabla_usuarios` ( 
-    `id` INT NOT NULL AUTO_INCREMENT, 
-    `usuario` VARCHAR(50) NOT NULL , 
-    `password` VARCHAR(255) NOT NULL , 
+CREATE TABLE `discografia`.`tabla_usuarios` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `usuario` VARCHAR(50) NOT NULL ,
+    `password` VARCHAR(255) NOT NULL ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 ```
 
 ### 2. Insertar usuarios
+
 - Manualmente
 - O crear un script PHP para hacerlo
 
 ### 3. Crear script login.php
+
 - Mostrar pantalla de login
 - Al introducir usuario y contraseña, comparar con el contenido de la tabla
 - Si es correcto → mostrar "Login successful"
@@ -4646,6 +4811,7 @@ CREATE TABLE `discografia`.`tabla_usuarios` (
 ## Resumen de buenas prácticas
 
 ### ✅ Recomendado
+
 - Usar **HTTPS** siempre
 - Almacenar contraseñas en **base de datos** o LDAP
 - Usar **`password_hash()`** y **`password_verify()`**
@@ -4654,6 +4820,7 @@ CREATE TABLE `discografia`.`tabla_usuarios` (
 - Contraseñas siempre **encriptadas** en base de datos
 
 ### ❌ No recomendado
+
 - HTTP sin encriptación
 - Algoritmos **md5** o **sha1**
 - Autenticación HTTP con htpasswd (para aplicaciones grandes)
@@ -4667,18 +4834,22 @@ CREATE TABLE `discografia`.`tabla_usuarios` (
 ## 1. ¿Qué son las Cookies?
 
 ### Definición
+
 - Las **cookies** son archivos de texto que las aplicaciones guardan en el cliente
 - Se almacenan en el entorno del navegador web
 - Están asociadas con un sitio web específico
 
 ### Uso típico
+
 Almacenamiento de preferencias del usuario:
+
 - Idioma
 - Colores
 - Tamaño de letra
 - Otras preferencias personales
 
 ### Características
+
 - Normalmente se guarda información **no muy sensible**
 - Permite descargar algunas tareas al cliente
 - Reduce la carga del servidor
@@ -4694,6 +4865,7 @@ setcookie(name, value, expire or [options], path, domain, secure, httponly);
 ```
 
 ### Parámetros
+
 - **name**: único parámetro obligatorio
 - **value**: valor de la cookie
 - **expire**: tiempo de expiración
@@ -4710,6 +4882,7 @@ setcookie('nombre', 'valor', time()+3600);
 ```
 
 ### ⚠️ Importante sobre disponibilidad
+
 - Las cookies **NO están disponibles** la primera vez que se accede a la página
 - Se pueden leer desde la **siguiente petición** usando el array global `$_COOKIE`
 
@@ -4745,16 +4918,20 @@ if(!isset($_COOKIE[$cookie_name])) {
 ## 4. Parámetro expire (expiración)
 
 ### Formato
+
 - Se usa **tiempo UNIX** en segundos desde 1-1-1970 00:00:00
 
 ### Comportamiento
+
 - **Vacío o 0**: la cookie expira al finalizar la sesión (al cerrar el navegador)
 - **time() + segundos**: expira después de X segundos
 
 ### Modificar una cookie
+
 Para modificar una cookie, se debe hacer un `setcookie` con los nuevos valores
 
 ### Eliminar una cookie
+
 La fecha de expiración debe haber pasado:
 
 ```php path=null start=null
@@ -4780,11 +4957,13 @@ setcookie('MiCookie', 'ValorCookie', $arr_cookie_options);
 ```
 
 ### Descripción de opciones
+
 - **secure**: la cookie solo se enviará en conexiones HTTPS
 - **httponly**: la cookie no será accesible mediante JavaScript (previene XSS)
 - **samesite**: controla cuándo se envía la cookie en peticiones cross-site
 
 ### Consultar cookies
+
 Para consultar las cookies recibidas por el servidor:
 
 ```php path=null start=null
@@ -4817,7 +4996,9 @@ if (isset($_COOKIE['cookie'])) {
 ## 7. Inspeccionar cookies
 
 ### En el navegador (Firefox)
+
 **Para la aplicación actual:**
+
 1. Click derecho → Inspeccionar
 2. Pestaña **Storage** (Almacenamiento)
 3. Seleccionar **Cookies**
@@ -4831,7 +5012,9 @@ if (isset($_COOKIE['cookie'])) {
 5. Abrir pestaña "Datasheet"
 
 ### Información visible
+
 En las herramientas de desarrollo se puede ver:
+
 - **Nombre** de la cookie
 - **Valor** de la cookie
 - **Dominio**
@@ -4843,22 +5026,27 @@ En las herramientas de desarrollo se puede ver:
 ## 8. Buenas prácticas para el uso de cookies
 
 ### ❌ Preguntas de reflexión
+
 - ¿Es buena práctica guardar contraseñas en cookies? **NO**
 - ¿Y números de tarjeta de crédito? **NO**
 
 ### ✅ Recomendaciones de seguridad
 
 **Evitar datos sensibles:**
+
 - **Evitar guardar datos sensibles** tanto como sea posible
 - Si es necesario, **encriptarlos** y usar **HTTPS**
 
 **Consentimiento:**
+
 - Antes de guardar una cookie, se debe **informar al usuario y obtener su consentimiento**
 
 **Expiración:**
+
 - Si la cookie solo se usará durante la sesión, hacerla expirar al cerrar el navegador (expire = 0)
 
 **Opciones de seguridad:**
+
 - Usar `secure => true` para conexiones HTTPS
 - Usar `httponly => true` para prevenir acceso desde JavaScript
 - Configurar `samesite` apropiadamente
@@ -4882,7 +5070,7 @@ Modificar la pantalla de login del ejercicio anterior para que:
 
 3. **Flujo según selección:**
    - **Si selecciona "Sí"**: mostrar "Acceso exitoso"
-   - **Si selecciona "No"**: 
+   - **Si selecciona "No"**:
      - Eliminar la cookie
      - Mostrar formulario de login nuevamente
 
@@ -4891,15 +5079,18 @@ Modificar la pantalla de login del ejercicio anterior para que:
 ## Resumen de conceptos clave
 
 ### Cookies
+
 - Archivos de texto guardados en el cliente
 - Asociadas a un sitio web específico
 - Útiles para preferencias de usuario
 
 ### Funciones principales
+
 - `setcookie()`: crear/modificar cookies
 - `$_COOKIE[]`: leer cookies
 
 ### Seguridad
+
 - No guardar datos sensibles sin encriptar
 - Usar HTTPS (`secure => true`)
 - Usar `httponly => true`
@@ -4913,12 +5104,14 @@ Modificar la pantalla de login del ejercicio anterior para que:
 ## 1. Introducción a las sesiones
 
 ### Problema de HTTP
+
 - El protocolo **HTTP** no mantiene información sobre el estado de cada petición
 - Las peticiones se tratan como **conexiones independientes**
 
 ### Soluciones a nivel de aplicación
 
 **Dos técnicas principales:**
+
 - **Navegador web (cookies)** - almacenamiento en el cliente
 - **Servidor web (sessions)** - almacenamiento en el servidor
 
@@ -4947,23 +5140,27 @@ Para solucionar estos problemas, se usan **sesiones del lado del servidor**
 ## 3. Configuración de sesiones en PHP
 
 ### Soporte nativo
+
 - **PHP incorpora soporte activo de sesiones por defecto**
 - Se puede consultar la configuración activa usando `phpinfo()`
 
 ### Modificar configuración
 
 **Opción 1: Archivo php.ini**
+
 - Modificar el archivo `php.ini`
 - Reiniciar el servidor web
 - Documentación: http://php.net/manual/en/session.security.ini.php
 
 **Opción 2: En tiempo de ejecución**
+
 - Usar funciones correspondientes si no tienes acceso a `php.ini`
 - Documentación: http://php.net/manual/es/session.configuration.php
 
 ### Parámetros configurables
 
 **Por seguridad o configuración, se pueden cambiar:**
+
 - **Nombre de sesión** → por defecto: `PHPSESSID`
 - **Longitud del SID** (session ID)
 - **Tiempo de vida de la cookie de sesión**
@@ -4975,6 +5172,7 @@ Para solucionar estos problemas, se usan **sesiones del lado del servidor**
 ## 4. Session ID (SID)
 
 ### Concepto fundamental
+
 - Cada navegador de usuario tiene su **propia sesión**
 - Las sesiones se distinguen por el **identificador de sesión (SID)**
 - La información del usuario se almacena en el servidor asociada al SID
@@ -4983,11 +5181,13 @@ Para solucionar estos problemas, se usan **sesiones del lado del servidor**
 ### Dos formas de usar el SID
 
 **1. Propagar el SID en la URL**
+
 ```
 http://localhost/index.php?PHPSESSID=4vjekic8fl7sqr0np45nfdrl6p
 ```
 
 **2. Usar una cookie (método por defecto)**
+
 - Automático y transparente
 
 **Ambos métodos están automatizados con PHP**
@@ -4999,26 +5199,31 @@ http://localhost/index.php?PHPSESSID=4vjekic8fl7sqr0np45nfdrl6p
 ### Funcionamiento
 
 **Cuando no se usan cookies:**
+
 - Se crea una variable global llamada `SID` en cada sesión
 - Esta variable debe añadirse a todas las URLs de la aplicación
 
 ### Implementación
 
 **Manual:**
+
 - Programarlo en el código manualmente
 
 **Automática:**
+
 - Usar la opción PHP: `session.use_trans_sid`
 
 ### ⚠️ Riesgos de seguridad
 
 **La administración de sesiones basada en URL tiene riesgos adicionales:**
+
 - Los usuarios pueden enviar una URL con un ID de sesión activo por email
 - Los usuarios pueden guardar una URL con ID de sesión en marcadores
 - Accederán siempre con el mismo ID de sesión
 - **Compartir una URL = compartir el SID**
 
 **Desde PHP 7.1.0:**
+
 - Una ruta URL completa (ej: https://php.net/) es manejada por la característica trans sid
 - Versiones anteriores solo manejaban rutas relativas
 
@@ -5029,6 +5234,7 @@ http://localhost/index.php?PHPSESSID=4vjekic8fl7sqr0np45nfdrl6p
 ### Funcionamiento
 
 **Cuando se usan sesiones mediante cookies:**
+
 - El servidor web guarda automáticamente una cookie en el cliente con el SID
 - Las cookies se envían automáticamente en cada petición del cliente
 - **Es transparente para el usuario y el programador**
@@ -5036,12 +5242,14 @@ http://localhost/index.php?PHPSESSID=4vjekic8fl7sqr0np45nfdrl6p
 ### Ventajas sobre propagación en URL
 
 **Ambos métodos tienen desventajas, pero la propagación en URL tiene más:**
+
 - ❌ No puede mantener SID entre diferentes sesiones
 - ❌ Compartir una URL comparte el SID (riesgo de seguridad)
 
 ### Configuración por defecto en Apache
 
 **Apache usa cookies por defecto:**
+
 - Se establece una cookie llamada `PHPSESSID`
 - El valor es una cadena de identificación única
 
@@ -5052,26 +5260,31 @@ http://localhost/index.php?PHPSESSID=4vjekic8fl7sqr0np45nfdrl6p
 ### Dos formas de iniciar sesiones
 
 **1. Automáticamente:**
+
 - Configurar parámetro `session.auto_start` en `php.ini`
 - Por defecto está en `Off` (deshabilitado)
 
 **2. Manualmente:**
+
 - Usar la función `session_start()`
 
-### Variable superglobal $_SESSION
+### Variable superglobal $\_SESSION
 
 **Mientras una sesión está abierta:**
+
 - Se puede usar `$_SESSION` para almacenar información
 - O para recuperar información previamente almacenada
 
 ### ⚠️ Importante: ubicación de session_start()
 
 **Dado que las sesiones requieren el uso de cookies:**
+
 - Las cookies se envían en las **cabeceras HTTP**
 - La llamada debe ocurrir **antes de mostrar información en pantalla**
 - Debe estar **antes de la línea `<!doctype html>`**
 
 **La llamada `session_start()` debe hacerse:**
+
 - En **todos los archivos** de la aplicación web que necesiten información de sesión
 
 ---
@@ -5079,22 +5292,26 @@ http://localhost/index.php?PHPSESSID=4vjekic8fl7sqr0np45nfdrl6p
 ## 8. Fin de sesión
 
 ### Gestión automática
+
 - **Apache gestiona automáticamente** la creación y destrucción de sesiones
 - Se puede cambiar la configuración usando `php.ini`
 
 ### Cerrar sesión manualmente
 
 **Puede ser necesario cerrar sesión en cierto momento:**
+
 - Por ejemplo: cuando el usuario decide cerrar sesión (logout)
 - Si las sesiones almacenan información de login
 
 ### Funciones para cerrar sesión
 
 #### session_unset()
+
 - **Elimina todas las variables de sesión creadas**
 - **Mantiene el identificador de sesión** (SID)
 
 #### session_destroy()
+
 - **Elimina completamente la información de sesión**
 - Destruye toda la sesión
 
@@ -5171,17 +5388,21 @@ session_start();
 Modificar la aplicación Discografía para que tenga:
 
 **1. Página de registro**
+
 - Permitir a nuevos usuarios registrarse
 
 **2. Página de login y logout**
+
 - Login para autenticarse
 - Opción de logout en el header
 
 **3. Control de acceso**
+
 - **Ninguna página puede accederse sin autenticación previa**
 - Se recomienda el uso de **sesiones** para esto
 
 **4. Historial de búsquedas**
+
 - Las últimas búsquedas se guardan
 - Se muestran en pantalla en la página de búsqueda
 - Se recomienda el uso de **cookies** para esto
@@ -5192,13 +5413,13 @@ Modificar la aplicación Discografía para que tenga:
 
 ### Diferencias entre Cookies y Sessions
 
-| Aspecto | Cookies | Sessions |
-|---------|---------|----------|
-| **Almacenamiento** | Cliente (navegador) | Servidor |
-| **Seguridad** | Menos seguro | Más seguro |
-| **Tamaño** | Limitado (~4KB) | Mayor capacidad |
-| **Persistencia** | Puede ser permanente | Temporal (sesión) |
-| **Velocidad** | Más rápido (local) | Requiere servidor |
+| Aspecto            | Cookies              | Sessions          |
+| ------------------ | -------------------- | ----------------- |
+| **Almacenamiento** | Cliente (navegador)  | Servidor          |
+| **Seguridad**      | Menos seguro         | Más seguro        |
+| **Tamaño**         | Limitado (~4KB)      | Mayor capacidad   |
+| **Persistencia**   | Puede ser permanente | Temporal (sesión) |
+| **Velocidad**      | Más rápido (local)   | Requiere servidor |
 
 ### Funciones principales de sesión
 
@@ -5211,6 +5432,7 @@ Modificar la aplicación Discografía para que tenga:
 ### Buenas prácticas
 
 **✅ Recomendado:**
+
 - Usar sesiones para información sensible (datos de login)
 - Llamar `session_start()` antes de cualquier salida HTML
 - Configurar `httponly` para prevenir acceso desde JavaScript
@@ -5218,6 +5440,7 @@ Modificar la aplicación Discografía para que tenga:
 - Implementar logout para cerrar sesión correctamente
 
 **❌ Evitar:**
+
 - Propagar SID en la URL (riesgo de compartir sesión)
 - Almacenar datos sensibles en cookies sin encriptar
 - No cerrar sesión al hacer logout
@@ -5242,8 +5465,8 @@ Perfecto, Alex. Aquí tienes los apuntes de la unidad 6 (Subida y gestión de ar
 ```html
 <form action="subida.php" method="post" enctype="multipart/form-data">
   Selecciona el archivo a subir:
-  <input type="file" name="archivo" id="archivo">
-  <input type="submit" value="Enviar">
+  <input type="file" name="archivo" id="archivo" />
+  <input type="submit" value="Enviar" />
 </form>
 ```
 
@@ -5257,7 +5480,7 @@ Perfecto, Alex. Aquí tienes los apuntes de la unidad 6 (Subida y gestión de ar
   ```
 - En el formulario:
   ```html
-  <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+  <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
   ```
 
 ⚠️ El valor de `MAX_FILE_SIZE` no puede superar el de `upload_max_filesize`
@@ -5266,7 +5489,7 @@ Perfecto, Alex. Aquí tienes los apuntes de la unidad 6 (Subida y gestión de ar
 
 ## 2. Acceso a archivos subidos
 
-### Superglobal $_FILES
+### Superglobal $\_FILES
 
 - Contiene un array por cada archivo subido
 - Cada elemento incluye:
