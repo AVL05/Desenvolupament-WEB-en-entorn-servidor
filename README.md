@@ -1,6 +1,6 @@
 # Desarrollo Web en Entorno Servidor — Ejercicios 📚
 
-**Resumen:** Este repositorio contiene los ejercicios realizados durante la asignatura _Desarrollo Web en Entorno Servidor_. Está organizado por temas y proyectos prácticos en PHP (con acceso a base de datos MySQL en varios ejercicios).
+**Resumen:** Este repositorio contiene los ejercicios realizados durante la asignatura _Desarrollo Web en Entorno Servidor_. Está organizado por temas y proyectos prácticos en PHP y **Laravel** (con acceso a base de datos MySQL en varios ejercicios).
 
 ---
 
@@ -17,27 +17,34 @@
 
 ## Requisitos ✅
 
-- PHP (versión 7.4 o superior recomendada)
-- Servidor web local (XAMPP, WAMP, Laragon, o usar `php -S localhost:8000` para prácticas sencillas)
-- MySQL / MariaDB para los ejercicios que lo requieran
+- PHP (versión 8.2 o superior recomendada para proyectos Laravel)
+- Servidor web local (XAMPP, WAMP, Laragon, o usar `php -S localhost:8000`)
+- MySQL / MariaDB
+- Composer (para gestión de dependencias en Laravel)
 - Navegador moderno
 
 ---
 
 ## Cómo ejecutar los ejercicios 🛠️
 
-1. Instala un servidor local (por ejemplo XAMPP).
-2. Copia la carpeta del ejercicio que quieras ejecutar a la carpeta pública (por ejemplo `htdocs` en XAMPP) o ejecuta el servidor embebido desde la carpeta del ejercicio:
+1. **Proyectos PHP Nativo**:
+   - Instala un servidor local (por ejemplo XAMPP).
+   - Copia la carpeta a `htdocs` o ejecuta `php -S localhost:8000` dentro de la carpeta.
 
-```bash
-cd ruta/al/ejercicio
-php -S localhost:8000
-```
+2. **Proyectos Laravel** (Temas 9, 10, 11...):
+   - Asegúrate de tener Composer instalado.
+   - Dentro de la carpeta del proyecto, ejecuta:
+     ```bash
+     composer install
+     cp .env.example .env
+     php artisan key:generate
+     php artisan migrate
+     php artisan serve
+     ```
 
-3. Crea la base de datos importando los scripts SQL correspondientes (ver la sección "Bases de datos y scripts SQL").
-4. Revisa los archivos de configuración de conexión (ej.: `conexion.ini.php`, `db.php`) y ajusta las credenciales (usuario, contraseña, host, nombre de BD).
-
-> ⚠️ Si el ejercicio usa archivos `.ini` para configuración, comprueba que estén protegidos o fuera de la raíz pública en entorno real.
+3. **Base de Datos**:
+   - Crea las bases de datos necesarias según los archivos `.sql` o las migraciones de Laravel.
+   - Ajusta `.env` (Laravel) o `conexion.php` (Nativo) con tus credenciales.
 
 ---
 
@@ -45,55 +52,52 @@ php -S localhost:8000
 
 A continuación un resumen por carpetas con los ejercicios incluidos:
 
-- **Examen 1Trimestre/**
+- **Examen 1 Trimestre/**
+  - Aplicación de gestión de tareas y ejercicios de examen.
 
-  - Aplicación de gestión de tareas: `index.php`, `login.php`, `registro.php`, `nueva_tarea.php`, `editar_tarea.php`, `eliminar_tarea.php`, `perfil.php`.
-  - Archivos de configuración: `cabecera.ini.php`, `conexion.ini.php`, `tarea.ini.php`, `usuario.ini.php`.
-  - Subcarpeta: `Posibles Ejercicios Examen/` con `database_setup.sql` y ejercicios ejemplo.
+- **Examen 2 Trimestre/**
+  - `gestion-tareas/`: Proyecto completo en Laravel para gestión de tareas.
+  - `Examen 1er Trimeste (Laravel)/`: Prácticas o recuperaciones relacionadas.
 
 - **Tema 1/**
-
-  - Ejercicios de HTML: `principal.html`, `rrss.html`, `tecnologias.html`.
+  - Ejercicios básicos de HTML (`principal.html`, `rrss.html`).
 
 - **Tema 2/**
-
-  - Múltiples ejemplos de PHP distribuidos en subcarpetas `2.1`, `2.2`, `2.3`, `2.4` con ficheros como `archivo.php`, `cabecera.inc.php`, `info.php`, `prueba.php`, `rrss.php`, `server.php` y ejemplos de formularios y includes.
+  - Introducción a PHP: ejemplos de sintaxis, includes y formularios.
 
 - **Tema 3/Herencia de clases/**
-
-  - Ejercicios de POO y herencia: `testCintaVideo.php`, `testCompleto.php`, `testDvd.php`, `testJuego.php`, `testSoporte.php`.
+  - Programación Orientada a Objetos (POO): Clases `CintaVideo`, `Dvd`, `Juego` y tests.
 
 - **Tema 4/**
-
-  - Prácticas de acceso a bases de datos y aplicaciones (carpeta `store/`, `discografia/` en otras subcarpetas).
+  - Acceso a bases de datos (PDO/MySQLi) y estructura de aplicaciones (`store/`, `discografia/`).
 
 - **Tema 5/**
-
-  - Proyecto de discografía: `album.ini.php`, `borrardisco.php`, `canciones.php`, `cancionnueva.php`, `conexion.ini.php`, `disco.php`, `index.php`, `login.php`, `registro.php`.
+  - Proyecto Discografía: Gestión de discos, canciones y usuarios con PHP nativo.
 
 - **Tema 6/**
-
-  - **Ejercicio Obligatorio/**: sistema de gestión de usuarios con `database.sql`, `db.php`, `index.php`, `register.php`, `profile.php`, `logout.php`, `style.css`.
+  - **Ejercicio Obligatorio/**: Sistema de usuarios (Login/Registro/Perfil) en PHP puro.
 
 - **Tema 7/**
-
-  - **API Reservas Hotel/**: `database.sql`, `index.php`, `credenciales.txt`, `README.md` (específico del ejercicio). También trabajos como `Trabajo Pokemon`.
+  - **API Reservas Hotel/**: API REST básica y consumo de servicios.
 
 - **Tema 8/**
-
-  - `ejemplo_mvc/` (ejemplo de arquitectura MVC).
+  - Arquitectura MVC: Ejemplo práctico `ejemplo_mvc/`.
 
 - **Tema 9/**
-  - `godoy/` (ejercicio o trabajo final relacionado).
+  - `videoclub/`: Trabajo/Proyecto en PHP.
+
+- **Tema 10/** (Laravel: Controladores y Middleware)
+  - `videoclub/`: Inicio del proyecto Videoclub en Laravel.
+  - Apuntes y documentación sobre Laravel 12.
+
+- **Tema 11/** (Laravel: Modelos y BD)
+  - `videoclub - pt1/`: Evolución del proyecto Videoclub.
+  - `videoclub - pt2/`: Funcionalidades avanzadas del Videoclub.
+  - Apuntes sobre Eloquent ORM y acceso a datos.
 
 ---
 
 ## Bases de datos y scripts SQL 🗃️
 
-Archivos SQL incluidos (importar con phpMyAdmin o con `mysql`):
-
-- `Examen 1Trimestre/Posibles Ejercicios Examen/database_setup.sql`
-- `Tema 6/Ejercicio Obligatorio/database.sql`
-- `Tema 7/API Reservas Hotel/database.sql`
-
-Ajusta las credenciales en los archivos de conexión antes de ejecutar la aplicación.
+- **Proyectos Nativos**: Busca archivos `.sql` dentro de las carpetas (ej. `database.sql`).
+- **Proyectos Laravel**: Utiliza `php artisan migrate` para generar la estructura de la base de datos definida en `database/migrations/`.
