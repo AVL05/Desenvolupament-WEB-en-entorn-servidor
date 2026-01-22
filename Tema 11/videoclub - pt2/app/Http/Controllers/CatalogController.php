@@ -3,50 +3,58 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Movie;
 
 class CatalogController extends Controller
 {
-    /**
-     * Muestra el listado completo del catálogo de películas
-     */
     public function getIndex()
     {
-        // Obtener todas las películas de la base de datos
-        $arrayPeliculas = Movie::all();
-        
-        return view('catalog.index', ['arrayPeliculas' => $arrayPeliculas]);
+        $peliculas = Movie::all();
+        return view('catalog.index', ['arrayPeliculas' => $peliculas]);
     }
 
-    /**
-     * Muestra el detalle de una película
-     * @param int $id - Identificador de la película
-     */
     public function getShow($id)
     {
-        // Obtener la película por su id, si no existe lanza un error 404
         $pelicula = Movie::findOrFail($id);
-        
-        return view('catalog.show', ['pelicula' => $pelicula, 'id' => $id]);
+        return view('catalog.show', ['pelicula' => $pelicula]);
     }
 
-    /**
-     * Muestra el formulario para crear una nueva película
-     */
     public function getCreate()
     {
         return view('catalog.create');
     }
 
-    /**
-     * Muestra el formulario para editar una película existente
-     * @param int $id - Identificador de la película
-     */
     public function getEdit($id)
     {
-        // Obtener la película por su id, si no existe lanza un error 404
         $pelicula = Movie::findOrFail($id);
-        
-        return view('catalog.edit', ['pelicula' => $pelicula, 'id' => $id]);
+        return view('catalog.edit', ['pelicula' => $pelicula]);
+    }
+
+    public function postCreate(Request $request)
+    {
+        $p = new Movie();
+        $p->title = $request->input('title');
+        $p->year = $request->input('year');
+        $p->director = $request->input('director');
+        $p->poster = $request->input('poster');
+        $p->synopsis = $request->input('synopsis');
+        $p->rented = false; // Default value
+        $p->save();
+
+        return redirect('/catalog');
+    }
+
+    public function putEdit(Request $request, $id)
+    {
+        $p = Movie::findOrFail($id);
+        $p->title = $request->input('title');
+        $p->year = $request->input('year');
+        $p->director = $request->input('director');
+        $p->poster = $request->input('poster');
+        $p->synopsis = $request->input('synopsis');
+        $p->save();
+
+        return redirect('/catalog/show/' . $id);
     }
 }

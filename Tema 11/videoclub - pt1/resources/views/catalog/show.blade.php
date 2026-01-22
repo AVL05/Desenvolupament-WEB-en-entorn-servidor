@@ -1,41 +1,43 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="row mb-4">
-        <div class="col-12">
-            <h2>Detalle de la Película</h2>
-            <hr>
-        </div>
+<div class="row">
+
+    <div class="col-sm-4">
+        {{-- Imagen de la película --}}
+        <img src="{{ $pelicula->poster }}" style="width: 100%;" />
     </div>
-    
-    <div class="row">
-        <div class="col-sm-4">
-            <img src="{{ $pelicula->poster }}" class="img-fluid" alt="{{ $pelicula->title }}">
-        </div>
-        <div class="col-sm-8">
-            <h3>{{ $pelicula->title }}</h3>
-            <p><strong>Año:</strong> {{ $pelicula->year }}</p>
-            <p><strong>Director:</strong> {{ $pelicula->director }}</p>
-            <p><strong>Resumen:</strong></p>
-            <p>{{ $pelicula->synopsis }}</p>
-            
-            <p><strong>Estado:</strong></p>
+    <div class="col-sm-8">
+        {{-- Datos de la película --}}
+        <h1>{{ $pelicula->title }}</h1>
+        <h4>Año: {{ $pelicula->year }}</h4>
+        <h4>Director: {{ $pelicula->director }}</h4>
+
+        <p><strong>Resumen:</strong> {{ $pelicula->synopsis }}</p>
+
+        <p><strong>Estado:</strong>
             @if($pelicula->rented)
-                <p class="text-danger">Película actualmente alquilada</p>
-                <a href="#" class="btn btn-danger">Devolver película</a>
+                Película actualmente alquilada
             @else
-                <p class="text-success">Película disponible</p>
-                <a href="#" class="btn btn-primary">Alquilar película</a>
+                Película disponible
             @endif
-            
-            <div class="mt-3">
-                <a href="{{ url('/catalog/edit/' . $pelicula->id) }}" class="btn btn-warning">
-                    Editar película
-                </a>
-                <a href="{{ url('/catalog') }}" class="btn btn-secondary">
-                    Volver al listado
-                </a>
-            </div>
-        </div>
+        </p>
+
+        @if($pelicula->rented)
+            <a class="btn btn-danger" href="#">Devolver película</a>
+        @else
+            <a class="btn btn-primary" href="#">Alquilar película</a>
+        @endif
+
+        <a class="btn btn-warning" href="{{ url('/catalog/edit/' . $pelicula->id ) }}">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            Editar película
+        </a>
+        <a class="btn btn-outline-dark" href="{{ url('/catalog') }}">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            Volver al listado
+        </a>
+
     </div>
+</div>
 @stop

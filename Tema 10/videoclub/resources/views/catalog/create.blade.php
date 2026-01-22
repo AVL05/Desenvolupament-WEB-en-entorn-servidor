@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-
 <div class="row" style="margin-top:40px">
    <div class="offset-md-3 col-md-6">
       <div class="card">
@@ -10,8 +9,10 @@
          </div>
          <div class="card-body" style="padding:30px">
 
-            <form method="POST" action="{{ url('/catalog/store') }}">
+            {{-- Abrir el formulario e indicar el método POST --}}
+            <form action="{{ url('/catalog/create') }}" method="POST">
 
+            {{-- Protección contra CSRF --}}
             @csrf
 
             <div class="form-group">
@@ -20,18 +21,21 @@
             </div>
 
             <div class="form-group">
+               {{-- Completa el input para el año --}}
                <label for="year">Año</label>
-               <input type="number" name="year" id="year" class="form-control">
+               <input type="text" name="year" id="year" class="form-control">
             </div>
 
             <div class="form-group">
+               {{-- Completa el input para el director --}}
                <label for="director">Director</label>
                <input type="text" name="director" id="director" class="form-control">
             </div>
 
             <div class="form-group">
+               {{-- Completa el input para el poster --}}
                <label for="poster">Poster</label>
-               <input type="url" name="poster" id="poster" class="form-control">
+               <input type="text" name="poster" id="poster" class="form-control">
             </div>
 
             <div class="form-group">
@@ -45,11 +49,11 @@
                </button>
             </div>
 
+            {{-- Cerrar formulario --}}
             </form>
 
          </div>
       </div>
    </div>
 </div>
-
 @stop

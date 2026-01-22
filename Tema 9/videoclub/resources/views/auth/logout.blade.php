@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    Main page
+    User logout
 @stop

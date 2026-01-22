@@ -6,12 +6,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Redirige al catálogo de películas
-     */
     public function getHome()
     {
-
-        return redirect()->route('catalog');
+        return redirect()->action([CatalogController::class, 'getIndex']);
     }
 }

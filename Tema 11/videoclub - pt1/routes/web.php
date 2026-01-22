@@ -1,27 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CatalogController;
 
-// Ruta principal - redirige al catálogo
-Route::get('/', [HomeController::class, 'getHome'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'getHome']);
 
-// Ruta de login (sin controlador por ahora)
-Route::get('login', function () {
+Route::get('/login', function () {
     return view('auth.login');
-})->name('login');
+});
 
-// Ruta de logout (sin controlador por ahora)
-Route::get('logout', function () {
-    return 'Logout del usuario';
-})->name('logout');
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-// Rutas del catálogo
-Route::get('catalog', [CatalogController::class, 'getIndex'])->name('catalog');
+Route::any('/logout', function (Request $request) {
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/');
+});
 
-Route::get('catalog/show/{id}', [CatalogController::class, 'getShow'])->name('catalog.show');
+Route::get('/catalog', [App\Http\Controllers\CatalogController::class, 'getIndex']);
 
-Route::get('catalog/create', [CatalogController::class, 'getCreate'])->name('catalog.create');
+Route::get('/catalog/show/{id}', [App\Http\Controllers\CatalogController::class, 'getShow']);
 
-Route::get('catalog/edit/{id}', [CatalogController::class, 'getEdit'])->name('catalog.edit');
+Route::get('/catalog/create', [App\Http\Controllers\CatalogController::class, 'getCreate']);
+
+Route::get('/catalog/edit/{id}', [App\Http\Controllers\CatalogController::class, 'getEdit']);

@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-
 <div class="row" style="margin-top:40px">
    <div class="offset-md-3 col-md-6">
       <div class="card">
@@ -10,10 +9,9 @@
          </div>
          <div class="card-body" style="padding:30px">
 
-            <form method="POST" action="{{ url('/catalog/update/' . $id) }}">
-
-            @csrf
+            <form action="{{ url('/catalog/edit/' . $id) }}" method="POST">
             @method('PUT')
+            @csrf
 
             <div class="form-group">
                <label for="title">Título</label>
@@ -22,7 +20,7 @@
 
             <div class="form-group">
                <label for="year">Año</label>
-               <input type="number" name="year" id="year" class="form-control" value="{{ $pelicula['year'] }}">
+               <input type="text" name="year" id="year" class="form-control" value="{{ $pelicula['year'] }}">
             </div>
 
             <div class="form-group">
@@ -32,7 +30,7 @@
 
             <div class="form-group">
                <label for="poster">Poster</label>
-               <input type="url" name="poster" id="poster" class="form-control" value="{{ $pelicula['poster'] }}">
+               <input type="text" name="poster" id="poster" class="form-control" value="{{ $pelicula['poster'] }}">
             </div>
 
             <div class="form-group">
@@ -52,5 +50,4 @@
       </div>
    </div>
 </div>
-
 @stop
