@@ -11,13 +11,18 @@
                 </div>
 
                 <!-- Navigation Links -->
+                <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    
+                    {{-- Enlace a Tareas: activo si la ruta actual coincide con tareas.* (cualquier subruta) --}}
                     <x-nav-link :href="route('tareas.index')" :active="request()->routeIs('tareas.*')">
                         {{ __('Tareas') }}
                     </x-nav-link>
+                    
+                    {{-- Enlace directo a crear tarea --}}
                     <x-nav-link :href="route('tareas.create')" :active="request()->routeIs('tareas.create')">
                         {{ __('Nueva Tarea') }}
                     </x-nav-link>

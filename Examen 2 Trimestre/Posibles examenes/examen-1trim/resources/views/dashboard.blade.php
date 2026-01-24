@@ -1,4 +1,5 @@
 <x-app-layout>
+    {{-- Slot 'header': Se inserta en el lugar definido como $header en layouts/app.blade.php --}}
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}

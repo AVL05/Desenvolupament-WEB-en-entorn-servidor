@@ -12,17 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tareas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->text('descripcion');
-            $table->date('fecha_finalizacion')->nullable();
-            $table->boolean('completada')->default(false);
+            $table->id(); // ID autoincremental (PK)
+            $table->string('nombre'); // Nombre corto de la tarea
+            $table->text('descripcion'); // Descripción detallada
+            $table->date('fecha_finalizacion')->nullable(); // Fecha opcional cuando se completa
+            $table->boolean('completada')->default(false); // Estado de la tarea (true/false)
             
-            $table->foreignId('id_usr_crea')->constrained('users')->onDelete('cascade');
-            $table->foreignId('id_usr_mod')->nullable()->constrained('users')->onDelete('set null');
+            // Claves foráneas para tracking de usuarios
+            // Constrained asume 'users' por defecto si el nombre sigue convención, pero lo especificamos por claridad
+            $table->foreignId('id_usr_crea')->constrained('users')->onDelete('cascade'); // Si borran el usuario, se borran sus tareas
+            $table->foreignId('id_usr_mod')->nullable()->constrained('users')->onDelete('set null'); // Si borran el usuario, queda null
             $table->foreignId('id_usr_comp')->nullable()->constrained('users')->onDelete('set null');
             
-            $table->timestamps();
+            $table->timestamps(); // created_at y updated_at
         });
     }
 

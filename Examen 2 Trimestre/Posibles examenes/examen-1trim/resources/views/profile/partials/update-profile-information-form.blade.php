@@ -15,7 +15,7 @@
 
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
         @csrf
-        @method('patch')
+        @method('patch') {{-- Método PATCH para indicar actualización parcial --}}
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -28,6 +28,7 @@
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
+            {{-- Verificación si el usuario debe confirmar su email --}}
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800">
@@ -50,6 +51,7 @@
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
+            {{-- Mensaje flash de 'Guardado' que desaparece tras 2 segundos usando Alpine.js --}}
             @if (session('status') === 'profile-updated')
                 <p
                     x-data="{ show: true }"

@@ -9,15 +9,17 @@
         </p>
     </header>
 
+    {{-- Botón que abre el modal de confirmación usando Alpine.js --}}
     <x-danger-button
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >{{ __('Delete Account') }}</x-danger-button>
 
+    {{-- Modal de confirmación. Se muestra automáticamente si hay errores de validación (contraseña incorrecta) --}}
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
             @csrf
-            @method('delete')
+            @method('delete') {{-- Método DELETE para borrar el recurso --}}
 
             <h2 class="text-lg font-medium text-gray-900">
                 {{ __('Are you sure you want to delete your account?') }}

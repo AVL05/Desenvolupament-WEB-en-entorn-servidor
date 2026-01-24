@@ -2,11 +2,14 @@
 
 @section('content')
 <div class="filter-bar">
+    {{-- Formulario de filtrado mediante GET para mantener filtros en la URL --}}
     <form action="{{ route('tareas.index') }}" method="GET" style="display:contents">
         <div class="form-group" style="flex-grow: 1; margin:0">
             <label for="termino" style="font-size:0.875rem">Buscar</label>
             <input type="text" name="termino" class="form-control" placeholder="Nombre o descripción..." value="{{ request('termino') }}">
         </div>
+        
+        {{-- Selector de Estado: Mantiene la opción seleccionada comparando con request() --}}
         <div class="form-group" style="margin:0">
             <label for="estado" style="font-size:0.875rem">Estado</label>
             <select name="estado" class="form-control">
@@ -15,6 +18,8 @@
                 <option value="0" {{ request('estado') === '0' ? 'selected' : '' }}>Pendientes</option>
             </select>
         </div>
+        
+        {{-- Filtros de Fecha --}}
         <div class="form-group" style="margin:0">
              <label for="fecha_desde" style="font-size:0.875rem">Desde</label>
              <input type="date" name="fecha_desde" class="form-control" value="{{ request('fecha_desde') }}">
@@ -23,6 +28,7 @@
              <label for="fecha_hasta" style="font-size:0.875rem">Hasta</label>
              <input type="date" name="fecha_hasta" class="form-control" value="{{ request('fecha_hasta') }}">
         </div>
+        
         <button type="submit" class="btn btn-primary">Filtrar</button>
         <a href="{{ route('tareas.index') }}" class="btn btn-secondary">Limpiar</a>
     </form>
@@ -43,13 +49,14 @@
             </tr>
         </thead>
         <tbody>
+            {{-- Iteramos sobre la colección de tareas. @forelse maneja automáticamente si está vacío --}}
             @forelse($tareas as $tarea)
             <tr>
                 <td>{{ $tarea->id }}</td>
                 <td>{{ $tarea->nombre }}</td>
-                <td>{{ Str::limit($tarea->descripcion, 50) }}</td>
+                <td>{{ Str::limit($tarea->descripcion, 50) }}</td> {{-- Limitamos texto largo --}}
                 <td>{{ $tarea->created_at->format('d/m/Y H:i') }}</td>
-                <td>{{ $tarea->creador->name ?? '-' }}</td>
+                <td>{{ $tarea->creador->name ?? '-' }}</td> {{-- Operador ?? evita error si creador es null --}}
                 <td>
                     {{ $tarea->updated_at->format('d/m/Y') }}<br>
                     <small style="color:var(--text-muted)">{{ $tarea->modificador->name ?? '' }}</small>
@@ -68,13 +75,18 @@
                 </td>
                 <td>
                     <div class="actions">
+                        {{-- Solo mostramos acciones de editar/completar si NO está completada --}}
                         @if(!$tarea->completada)
                             <a href="{{ route('tareas.edit', $tarea) }}" class="btn btn-secondary btn-sm">Editar</a>
+                            
+                            {{-- Botón para completar (requiere form separado para método PUT) --}}
                             <form action="{{ route('tareas.complete', $tarea) }}" method="POST" style="display:inline">
                                 @csrf
                                 @method('PUT')
                                 <button type="submit" class="btn btn-primary btn-sm" style="background-color: var(--success); border:none;" onclick="return confirm('¿Marcar como completada?')">✓</button>
                             </form>
+                            
+                            {{-- Botón de eliminación --}}
                             <form action="{{ route('tareas.destroy', $tarea) }}" method="POST" style="display:inline">
                                 @csrf
                                 @method('DELETE')
@@ -87,6 +99,7 @@
                 </td>
             </tr>
             @empty
+            {{-- Bloque que se muestra si no hay tareas --}}
             <tr>
                 <td colspan="8" style="text-align: center; padding: 2rem; color: var(--text-muted);">No se encontraron tareas.</td>
             </tr>

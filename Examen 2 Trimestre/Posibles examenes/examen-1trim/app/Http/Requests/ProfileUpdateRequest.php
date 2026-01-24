@@ -13,6 +13,12 @@ class ProfileUpdateRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    // Definimos las reglas de validación para actualizar el perfil
     public function rules(): array
     {
         return [
@@ -23,6 +29,7 @@ class ProfileUpdateRequest extends FormRequest
                 'lowercase',
                 'email',
                 'max:255',
+                // Validación de unicidad ignorando el ID del usuario actual (para que no falle si no cambia el email)
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
         ];

@@ -17,11 +17,12 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    // Campos que se pueden asignar masivamente (Mass Assignment)
     protected $fillable = [
         'name',
         'email',
         'password',
-        'ruta_img',
+        'ruta_img', // Imagen de perfil personalizada
     ];
 
     /**
@@ -29,6 +30,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    // Atributos ocultos al convertir el modelo a array/JSON (por seguridad)
     protected $hidden = [
         'password',
         'remember_token',
@@ -39,11 +41,12 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+    // Conversión automática de tipos de datos
     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password' => 'hashed', // Hashea automáticamente la contraseña al guardarla
         ];
     }
 }
